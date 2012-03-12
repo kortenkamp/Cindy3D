@@ -12,6 +12,7 @@
 		<path id="libraries">
 			<fileset dir="${3rdpartydir}" includes="*.jar"/>
 		</path>
+		<mkdir dir="bin"/>
 	</target>
 	
 
@@ -19,6 +20,7 @@
 	
 	<target name="compile" depends="init" description="Compile plugin">
 		<javac encoding="iso-8859-1" debug="on" optimize="on"
+			   includeAntRuntime="off" includeJavaRuntime="off"
 			   srcdir="src" destdir="bin" target="1.5"
 			   source="1.5">
 			<classpath>
@@ -32,24 +34,21 @@
 
 		<delete file="${plugin}"/>
 
-		<!-- add compiled classes -->
-		<jar basedir="bin" destfile="${plugin}" includes="**/*.class">
-		</jar>
-		
-		<!-- add resources -->
-		<jar basedir="src" destfile="${plugin}" excludes="**/*.java" update="true">
+		<jar destfile="${plugin}">
+			<!-- add compiled classes -->
+			<fileset dir="bin" includes="**/*.class"/>
+			<!-- add resources -->
+			<fileset dir="src">
+				<include name="**/*.frag"/>
+				<include name="**/*.frag"/>
+				<include name="**/*.frag"/>
+			</fileset>
+			<!-- Add services file -->
+			<filelist dir="config">
+				<file name="META-INF/services/de.cinderella.api.cs.CindyScriptPlugin"/>
+			</filelist>
 		</jar>
 
-		<!-- add class path -->
-		<pathconvert property="mf.classpath" pathsep=" ">
-			<path refid="libraries"/>
-			<flattenmapper/>
-		</pathconvert>
-
-		<!-- Add services file -->
-		<jar destfile="${plugin}" basedir="config" update="true">
-			<file file="META-INF/services/de.cinderella.api.cs.CindyScriptPlugin"/>
-		</jar>
 	</target>
 
 	<target name="copy" depends="build" description="Copy plugin to Plugins folder">
