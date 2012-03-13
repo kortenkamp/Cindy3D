@@ -13,9 +13,6 @@
     <property name="commons-math.version" value="commons-math-2.2"/>
     <property name="arches"
               value="linux-amd64,linux-i586,macosx-universal,solaris-amd64,solaris-i586,windows-amd64,windows-i586"/>
-    <path id="libraries">
-      <fileset dir="${3rdpartydir}" includes="*.jar"/>
-    </path>
     <mkdir dir="bin"/>
   </target>
   
@@ -106,7 +103,13 @@
     <joglget file="gluegen-rt-natives-${arch}.jar"/>
   </target>
 
-  <target name="compile" depends="deps" description="Compile plugin">
+  <target name="paths" depends="deps">
+    <path id="libraries">
+      <fileset dir="${3rdpartydir}" includes="*.jar"/>
+    </path>
+  </target>
+
+  <target name="compile" depends="paths" description="Compile plugin">
     <javac encoding="iso-8859-1" debug="on" optimize="on"
            includeAntRuntime="off" includeJavaRuntime="off"
            srcdir="src" destdir="bin" target="1.5"
@@ -170,7 +173,7 @@
     </copy>
   </target>
 
-  <target name="doc" depends="init" description="Generate Javadoc">
+  <target name="doc" depends="paths" description="Generate Javadoc">
     <javadoc packagenames="de.tum.in.cindy3dplugin.*"
              sourcepath="src"
              destdir="doc">
@@ -184,6 +187,7 @@
   <target name="clean" description="Clean out generated artefacts">
     <delete dir="bin"/>
     <delete dir="bundles"/>
+    <delete dir="doc"/>
   </target>
 
 </project>
