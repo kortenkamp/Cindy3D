@@ -77,6 +77,7 @@ public class Cindy3DPlugin extends CindyScriptPlugin {
 	 * Creates a new plugin instance
 	 */
 	public Cindy3DPlugin() {
+		System.setProperty("jogamp.gluegen.UseTempJarCache", "false");
 		pointAppearanceStack = new Stack<AppearanceState>();
 		pointAppearance = new AppearanceState(Color.RED, 60, 1, 1);
 		lineAppearanceStack = new Stack<AppearanceState>();
