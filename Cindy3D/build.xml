@@ -1,201 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Cindy3D" default="build"
-				 xmlns:ac="antlib:net.sf.antcontrib">
+         xmlns:ac="antlib:net.sf.antcontrib">
 
-	<target name="init.vars" description="setup variables">
-		<property environment="env"/>
-		<property name="cindy2jar" location="lib/cindy2.jar"/>
-		<property name="3rdpartydir" location="lib/3rd-party"/>
-		<property name="pluginfolder" location="${env.CINDERELLA_PLUGIN_DIR}/Cindy3D"/>
-		<property name="plugin" location="Cindy3D.jar"/>
-		<property name="applet" location="deploy/cindy3d-applet.jar"/>
-		<property name="ant-contrib.version" value="1.0b3"/>
-		<property name="jogl.version" value="rc/v2.0-rc5"/>
-		<property name="commons-math.version" value="commons-math-2.2"/>
-		<property name="arches"
-			value="linux-amd64,linux-i586,macosx-universal,solaris-amd64,solaris-i586,windows-amd64,windows-i586"/>
-		<path id="libraries">
-			<fileset dir="${3rdpartydir}" includes="*.jar"/>
-		</path>
-		<mkdir dir="bin"/>
-	</target>
-	
+  <target name="init.vars" description="setup variables">
+    <property environment="env"/>
+    <property name="cindy2jar" location="lib/cindy2.jar"/>
+    <property name="3rdpartydir" location="lib/3rd-party"/>
+    <property name="pluginfolder" location="${env.CINDERELLA_PLUGIN_DIR}/Cindy3D"/>
+    <property name="plugin" location="Cindy3D.jar"/>
+    <property name="applet" location="deploy/cindy3d-applet.jar"/>
+    <property name="ant-contrib.version" value="1.0b3"/>
+    <property name="jogl.version" value="rc/v2.0-rc5"/>
+    <property name="commons-math.version" value="commons-math-2.2"/>
+    <property name="arches"
+              value="linux-amd64,linux-i586,macosx-universal,solaris-amd64,solaris-i586,windows-amd64,windows-i586"/>
+    <path id="libraries">
+      <fileset dir="${3rdpartydir}" includes="*.jar"/>
+    </path>
+    <mkdir dir="bin"/>
+  </target>
+  
 
-	<!-- no changes necessary below this line -->
+  <!-- no changes necessary below this line -->
 
-	<target name="ant-contrib.check">
-		<available property="ant-contrib.available"
-							 file="lib/ant/ant-contrib-${ant-contrib.version}.jar"/>
-	</target>
+  <target name="ant-contrib.check">
+    <available property="ant-contrib.available"
+               file="lib/ant/ant-contrib-${ant-contrib.version}.jar"/>
+  </target>
 
-	<target name="ant-contrib.get"
-					depends="ant-contrib.check"
-					unless="ant-contrib.available">
-		<mkdir dir="lib/ant"/>
-		<get dest="lib/ant/ant-contrib-${ant-contrib.version}-bin.zip"
-			 src="http://downloads.sourceforge.net/project/ant-contrib/ant-contrib/${ant-contrib.version}/ant-contrib-${ant-contrib.version}-bin.zip?use_mirror=autoselect"
-			 skipexisting="true"/>
-		<unzip src="lib/ant/ant-contrib-${ant-contrib.version}-bin.zip"
-			   dest="lib/ant" overwrite="false">
-			<patternset
-				includes="ant-contrib/ant-contrib-${ant-contrib.version}.jar"/>
-			<flattenmapper/>
-		</unzip>
-	</target>
+  <target name="ant-contrib.get"
+          depends="ant-contrib.check"
+          unless="ant-contrib.available">
+    <mkdir dir="lib/ant"/>
+    <get dest="lib/ant/ant-contrib-${ant-contrib.version}-bin.zip"
+         src="http://downloads.sourceforge.net/project/ant-contrib/ant-contrib/${ant-contrib.version}/ant-contrib-${ant-contrib.version}-bin.zip?use_mirror=autoselect"
+         skipexisting="true"/>
+    <unzip src="lib/ant/ant-contrib-${ant-contrib.version}-bin.zip"
+           dest="lib/ant" overwrite="false">
+      <patternset
+          includes="ant-contrib/ant-contrib-${ant-contrib.version}.jar"/>
+      <flattenmapper/>
+    </unzip>
+  </target>
 
-	<target name="ant-contrib.init"
-					depends="ant-contrib.get">
-		<taskdef resource="net/sf/antcontrib/antcontrib.properties"
-				 uri="antlib:net.sf.antcontrib">
-			<classpath>
-				<pathelement location="lib/ant/ant-contrib-${ant-contrib.version}.jar"/>
-			</classpath>
-		</taskdef>
-	</target>
+  <target name="ant-contrib.init"
+          depends="ant-contrib.get">
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties"
+             uri="antlib:net.sf.antcontrib">
+      <classpath>
+        <pathelement location="lib/ant/ant-contrib-${ant-contrib.version}.jar"/>
+      </classpath>
+    </taskdef>
+  </target>
 
-	<target name="init" depends="init.vars,ant-contrib.init"
-					description="setup build environment"/>
+  <target name="init" depends="init.vars,ant-contrib.init"
+          description="setup build environment"/>
 
-	<target name="deps" description="Fetch dependencies"
-					depends="deps.cindy,deps.commons-math,deps.jogl"/>
+  <target name="deps" description="Fetch dependencies"
+          depends="deps.cindy,deps.commons-math,deps.jogl"/>
 
-	<target name="deps.init" depends="init">
-		<mkdir dir="${3rdpartydir}"/>
-	</target>
+  <target name="deps.init" depends="init">
+    <mkdir dir="${3rdpartydir}"/>
+  </target>
 
-	<target name="deps.cindy" depends="deps.init">
-		<get dest="${cindy2jar}"
-				 src="http://www.cinderella.de/files/release/cindy2.jar"
-				 skipexisting="true"/>
-	</target>
+  <target name="deps.cindy" depends="deps.init">
+    <get dest="${cindy2jar}"
+         src="http://www.cinderella.de/files/release/cindy2.jar"
+         skipexisting="true"/>
+  </target>
 
-	<target name="deps.commons-math" depends="deps.init">
-		<property
-			name="commons-math.urlbase"
-			value="http://archive.apache.org/dist/commons/math/binaries"/>
-		<get dest="${3rdpartydir}/${commons-math.version}.zip"
-			 src="${commons-math.urlbase}/${commons-math.version}.zip"
-			 skipexisting="true"/>
-		<unzip src="${3rdpartydir}/${commons-math.version}.zip"
-			   dest="${3rdpartydir}" overwrite="false">
-			<patternset
-				includes="${commons-math.version}/${commons-math.version}.jar"/>
-			<flattenmapper/>
-		</unzip>
-	</target>
+  <target name="deps.commons-math" depends="deps.init">
+    <property name="commons-math.urlbase"
+              value="http://archive.apache.org/dist/commons/math/binaries"/>
+    <get dest="${3rdpartydir}/${commons-math.version}.zip"
+         src="${commons-math.urlbase}/${commons-math.version}.zip"
+         skipexisting="true"/>
+    <unzip src="${3rdpartydir}/${commons-math.version}.zip"
+           dest="${3rdpartydir}" overwrite="false">
+      <patternset
+          includes="${commons-math.version}/${commons-math.version}.jar"/>
+      <flattenmapper/>
+    </unzip>
+  </target>
 
-	<target name="deps.jogl" depends="deps.init">
-		<property
-			name="jogl.urlbase"
-			value="http://jogamp.org/deployment/archive/${jogl.version}/jar"/>
-		<macrodef name="joglget">
-			<attribute name="file"/>
-			<sequential>
-				<get dest="${3rdpartydir}/@{file}"
-						 src="${jogl.urlbase}/@{file}"
-						 skipexisting="true"/>
-			</sequential>
-		</macrodef>
-		<joglget file="jogl.all.jar"/>
-		<joglget file="gluegen-rt.jar"/>
-		<ac:foreach param="arch" list="${arches}"
-								target="deps.jogl.arch" inheritall="true"/>
-	</target>
+  <target name="deps.jogl" depends="deps.init">
+    <property name="jogl.urlbase"
+              value="http://jogamp.org/deployment/archive/${jogl.version}/jar"/>
+    <macrodef name="joglget">
+      <attribute name="file"/>
+      <sequential>
+        <get dest="${3rdpartydir}/@{file}"
+             src="${jogl.urlbase}/@{file}"
+             skipexisting="true"/>
+      </sequential>
+    </macrodef>
+    <joglget file="jogl.all.jar"/>
+    <joglget file="gluegen-rt.jar"/>
+    <ac:foreach param="arch" list="${arches}"
+                target="deps.jogl.arch" inheritall="true"/>
+  </target>
 
-	<target name="deps.jogl.arch">
-		<fail unless="arch">Do not call this target directly!</fail>
-		<echo message="Fetching native libraries for ${arch}."/>
-		<joglget file="jogl-all-natives-${arch}.jar"/>
-		<joglget file="gluegen-rt-natives-${arch}.jar"/>
-	</target>
+  <target name="deps.jogl.arch">
+    <fail unless="arch">Do not call this target directly!</fail>
+    <echo message="Fetching native libraries for ${arch}."/>
+    <joglget file="jogl-all-natives-${arch}.jar"/>
+    <joglget file="gluegen-rt-natives-${arch}.jar"/>
+  </target>
 
-	<target name="compile" depends="deps" description="Compile plugin">
-		<javac encoding="iso-8859-1" debug="on" optimize="on"
-			   includeAntRuntime="off" includeJavaRuntime="off"
-			   srcdir="src" destdir="bin" target="1.5"
-			   source="1.5">
-			<classpath>
-				<pathelement location="${cindy2jar}"/>
-				<path refid="libraries"/>
-			</classpath>
-		</javac>
-	</target>
+  <target name="compile" depends="deps" description="Compile plugin">
+    <javac encoding="iso-8859-1" debug="on" optimize="on"
+           includeAntRuntime="off" includeJavaRuntime="off"
+           srcdir="src" destdir="bin" target="1.5"
+           source="1.5">
+      <classpath>
+        <pathelement location="${cindy2jar}"/>
+        <path refid="libraries"/>
+      </classpath>
+    </javac>
+  </target>
 
-	<target name="build" depends="compile" description="Create plugin JAR">
+  <target name="build" depends="compile" description="Create plugin JAR">
 
-		<delete file="${plugin}"/>
+    <delete file="${plugin}"/>
 
-		<jar destfile="${plugin}">
-			<!-- add compiled classes -->
-			<fileset dir="bin" includes="**/*.class"/>
-			<!-- add resources -->
-			<fileset dir="src">
-				<include name="**/*.frag"/>
-				<include name="**/*.frag"/>
-				<include name="**/*.frag"/>
-			</fileset>
-			<!-- Add services file -->
-			<filelist dir="config">
-				<file name="META-INF/services/de.cinderella.api.cs.CindyScriptPlugin"/>
-			</filelist>
-		</jar>
+    <jar destfile="${plugin}">
+      <!-- add compiled classes -->
+      <fileset dir="bin" includes="**/*.class"/>
+      <!-- add resources -->
+      <fileset dir="src">
+        <include name="**/*.frag"/>
+        <include name="**/*.frag"/>
+        <include name="**/*.frag"/>
+      </fileset>
+      <!-- Add services file -->
+      <filelist dir="config">
+        <file name="META-INF/services/de.cinderella.api.cs.CindyScriptPlugin"/>
+      </filelist>
+    </jar>
 
-	</target>
+  </target>
 
-	<target name="bundles" depends="build"
-					description="Create archives containing all files for install">
-		<delete dir="bundles"/>
-		<mkdir dir="bundles"/>
-		<ac:foreach param="arch" list="${arches}"
-								target="bundle" inheritall="true"/>
-	</target>
+  <target name="bundles" depends="build"
+          description="Create archives containing all files for install">
+    <delete dir="bundles"/>
+    <mkdir dir="bundles"/>
+    <ac:foreach param="arch" list="${arches}"
+                target="bundle" inheritall="true"/>
+  </target>
 
-	<target name="bundle">
-		<fail unless="arch">Do not call this target directly!</fail>
-		<zip destfile="bundles/Cindy3D-${arch}.zip">
-			<zipfileset prefix="Cindy3D" dir="." includes="Cindy3D.jar"/>
-			<zipfileset prefix="Cindy3D" dir="${3rdpartydir}"
-									includes="*.jar" excludes="*-natives-*"/>
-			<zipfileset prefix="Cindy3D"
-									src="${3rdpartydir}/jogl-all-natives-${arch}.jar"
-									excludes="META-INF/"/>
-			<zipfileset prefix="Cindy3D"
-									src="${3rdpartydir}/gluegen-rt-natives-${arch}.jar"
-									excludes="META-INF/"/>
-		</zip>
-	</target>
+  <target name="bundle">
+    <fail unless="arch">Do not call this target directly!</fail>
+    <zip destfile="bundles/Cindy3D-${arch}.zip">
+      <zipfileset prefix="Cindy3D" dir="." includes="Cindy3D.jar"/>
+      <zipfileset prefix="Cindy3D" dir="${3rdpartydir}"
+                  includes="*.jar" excludes="*-natives-*"/>
+      <zipfileset prefix="Cindy3D"
+                  src="${3rdpartydir}/jogl-all-natives-${arch}.jar"
+                  excludes="META-INF/"/>
+      <zipfileset prefix="Cindy3D"
+                  src="${3rdpartydir}/gluegen-rt-natives-${arch}.jar"
+                  excludes="META-INF/"/>
+    </zip>
+  </target>
 
-	<target name="copy" depends="build" description="Copy plugin to Plugins folder">
-		<copy file="${plugin}" todir="${pluginfolder}"/>
-		<copy todir="${pluginfolder}">
-			<fileset dir="${3rdpartydir}" includes="*.jar"/>
-		</copy>
-	</target>
+  <target name="copy" depends="build"
+          description="Copy plugin to Plugins folder">
+    <copy file="${plugin}" todir="${pluginfolder}"/>
+    <copy todir="${pluginfolder}">
+      <fileset dir="${3rdpartydir}" includes="*.jar"/>
+    </copy>
+  </target>
 
-	<target name="doc" depends="init" description="Generate Javadoc">
-		<javadoc packagenames="de.tum.in.cindy3dplugin.*"
-				 sourcepath="src"
-				 destdir="doc">
-			<classpath>
-				<pathelement location="${cindy2jar}"/>
-				<path refid="libraries"/>
-			</classpath>
-		</javadoc>
-	</target>
-	
-	<target name="applet" depends="init" description="Generate test applet">
-		<delete file="${applet}"/>
-		
-		<jar destfile="${applet}" basedir="bin" includes="**/*.class">
-		</jar>
-		
-		<jar destfile="${applet}" basedir="src" excludes="**/*.java" update="true">
-		</jar>
-	</target>
+  <target name="doc" depends="init" description="Generate Javadoc">
+    <javadoc packagenames="de.tum.in.cindy3dplugin.*"
+             sourcepath="src"
+             destdir="doc">
+      <classpath>
+        <pathelement location="${cindy2jar}"/>
+        <path refid="libraries"/>
+      </classpath>
+    </javadoc>
+  </target>
+  
+  <target name="applet" depends="init" description="Generate test applet">
+    <delete file="${applet}"/>
+    
+    <jar destfile="${applet}" basedir="bin" includes="**/*.class">
+    </jar>
+    
+    <jar destfile="${applet}" basedir="src" excludes="**/*.java" update="true">
+    </jar>
+  </target>
 
-	<target name="clean" description="Clean out generated artefacts">
-		<delete dir="bin"/>
-		<delete dir="bundles"/>
-	</target>
+  <target name="clean" description="Clean out generated artefacts">
+    <delete dir="bin"/>
+    <delete dir="bundles"/>
+  </target>
 
 </project>
