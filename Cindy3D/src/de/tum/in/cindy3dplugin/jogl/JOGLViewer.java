@@ -377,7 +377,7 @@ public class JOGLViewer extends MouseAdapter implements Cindy3DViewer,
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		if ((e.getModifiers() & MouseEvent.BUTTON1_MASK) != 0) {
-			if (e.isControlDown()) {
+			if (e.isControlDown() || e.isAltDown()) {
 				camera.mousePan(e.getX() - mousePosition[0],
 						e.getY() - mousePosition[1]);
 			} else {
