@@ -5,7 +5,7 @@ all: build
 	$(MAKE) -C Documentation all
 
 build:
-	cd Cindy3D && $(ANT) build
+	cd Cindy3D && $(ANT) bundles
 
 clean:
 	$(MAKE) -C Reference clean
