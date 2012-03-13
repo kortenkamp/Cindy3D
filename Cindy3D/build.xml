@@ -131,8 +131,7 @@
       <!-- add resources -->
       <fileset dir="src">
         <include name="**/*.frag"/>
-        <include name="**/*.frag"/>
-        <include name="**/*.frag"/>
+        <include name="**/*.vert"/>
       </fileset>
       <!-- Add services file -->
       <filelist dir="config">
