@@ -1,9 +1,4 @@
 *~
 *.swp
 *.bak
-*.class
-*.jar
 .metadata
-bin
-doc
-/cloc-1.53.exe

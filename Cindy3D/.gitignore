@@ -1,0 +1,7 @@
+*.class
+*.jar
+.ant-targets-build.xml
+/bin/
+/bundles/
+/doc/
+/lib/
