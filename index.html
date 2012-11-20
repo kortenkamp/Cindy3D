@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Cindy 3D : Cindy 3D – bringing 3D to Cinderella" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Cindy 3D</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/gagern/Cindy3D">View on GitHub</a>
+
+          <h1 id="project_title">Cindy 3D</h1>
+          <h2 id="project_tagline">Cindy 3D – bringing 3D to Cinderella</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/gagern/Cindy3D/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/gagern/Cindy3D/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>About Cindy 3D</h2>
+
+<p>Cindy 3D is a Plug-In to the dynamic geometry software <a href="http://www.cinderella.de/">Cinderella</a>. It was created by Matthias Reitinger (<a href="https://github.com/reima" class="user-mention">@reima</a>) and Jan Sommer in 2010 and 2011, and is currently maintained by Martin von Gagern (<a href="https://github.com/gagern" class="user-mention">@gagern</a>). The 3D rendering is done through OpenGL using <a href="http://jogamp.org/jogl/www/">JOGL</a>. The project is licensed under the <a href="https://github.com/gagern/Cindy3D/blob/jogl2/LICENSE.txt">BSD two-clause license</a>.</p>
+
+<h2>Installation</h2>
+
+<p>Binary bundles of the software will soon become available. Once they do, you can simply grab one of these bundles. It will be a ZIP file containing a single directory called <code>Cindy3D</code>. Simply copy that directory into the <code>Plugins</code> directory of your Cinderella installation.</p>
+
+<p>On Windows and Linux, you will see a <code>Plugins</code> directory within the directory to which you installed Cinderella. On OS X, you will have to view the content of the application bundle. To do so, right-click on the application in finder and select the “Show Package Contents” item of the context menu. In the resulting directory structure, you will find <code>Contents:Resources:app:Plugins</code> which is the directory to which you want to copy the <code>Cindy3D</code> directory.</p>
+
+<p>Cindy3D comes with its own version of JOGL, and will locate that from the plugin directory. If you have a different version of JOGL (and GlueGen) installed into the Java runtime environment (JRE) of your machine, these two might conflict, causing the plugin to fail. In that case, please either remove the part from your JRE, or install an appropriate version.</p>
+
+<h2>Building from source</h2>
+
+<p>In order to build Cindy3D from source, obtain a copy of the working tree from GitHub. You can do so either by downloading a zip or tar file from this page here, or by cloning the git repository. The <code>Cindy3D</code> subdirectory of the working tree (which will probably be called <code>Cindy3D</code> as well, so you have two directories of the same name nested one inside the other) contains a <code>build.xml</code> file for <a href="http://ant.apache.org/">Apache Ant</a>. There are several supported targets, which you can list using <code>ant -p</code>. The most important target is <code>bundles</code>. So by running <code>ant -p bundles</code> in that directory, you should be able to create a bunch of zip files like the ones described above, located in a subdirectory called <code>bundles</code>. The build process will download all required dependencies from the Internet automatically.</p>
+
+<h2>Using the plugin</h2>
+
+<p>Documentation on how to use this plugin is currently under construction.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Cindy 3D maintained by <a href="https://github.com/gagern">gagern</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
