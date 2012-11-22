@@ -15,6 +15,10 @@ CommandReference.pdf: CommandReference.tex
 	$(PDFLATEX) -interaction=nonstopmode $<
 	$(PDFLATEX) -interaction=nonstopmode $<
 
+documented_commands.txt: CommandReference.html
+	sed -n 's:.*<h2>.*<span class="pre">\(.*\)(.*</h2>:\1:p' $< \
+	| sort > $@
+
 clean:
 	$(RM) $(addprefix CommandReference.,html tex pdf aux log out)
 

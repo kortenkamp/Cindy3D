@@ -2,3 +2,4 @@
 *.swp
 *.bak
 .metadata
+/Reference/documented_commands.txt
