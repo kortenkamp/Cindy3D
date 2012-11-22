@@ -9,7 +9,7 @@
     <property name="pluginfolder" location="${env.CINDERELLA_PLUGIN_DIR}/Cindy3D"/>
     <property name="plugin" location="Cindy3D.jar"/>
     <property name="ant-contrib.version" value="1.0b3"/>
-    <property name="jogl.version" value="rc/v2.0-rc5"/>
+    <property name="jogl.version" value="rc/v2.0-rc11"/>
     <property name="commons-math.version" value="commons-math-2.2"/>
     <property name="arches"
               value="linux-amd64,linux-i586,macosx-universal,solaris-amd64,solaris-i586,windows-amd64,windows-i586"/>
@@ -90,7 +90,7 @@
              skipexisting="true"/>
       </sequential>
     </macrodef>
-    <joglget file="jogl.all.jar"/>
+    <joglget file="jogl-all.jar"/>
     <joglget file="gluegen-rt.jar"/>
     <ac:foreach param="arch" list="${arches}"
                 target="deps.jogl.arch" inheritall="true"/>
@@ -151,7 +151,7 @@
 
   <target name="bundle">
     <fail unless="arch">Do not call this target directly!</fail>
-    <zip destfile="bundles/Cindy3D-${arch}.zip">
+    <zip destfile="bundles/Cindy3D${release}-${arch}.zip">
       <zipfileset prefix="Cindy3D" dir="." includes="Cindy3D.jar"/>
       <zipfileset prefix="Cindy3D" dir="${3rdpartydir}"
                   includes="*.jar" excludes="*-natives-*"/>
