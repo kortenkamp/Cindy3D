@@ -5,10 +5,10 @@ PDFLATEX=pdflatex
 
 all: CommandReference.pdf CommandReference.html
 
-CommandReference.html: CommandReference.txt docutils.conf
+CommandReference.html: CommandReference.rst docutils.conf
 	$(RST2HTML) $< $@
 
-CommandReference.tex: CommandReference.txt docutils.conf
+CommandReference.tex: CommandReference.rst docutils.conf
 	$(RST2LATEX) $< $@
 
 CommandReference.pdf: CommandReference.tex
