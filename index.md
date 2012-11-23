@@ -1,13 +1,12 @@
 ---
 layout: main
-title: About Scriptish
-keywords: scriptish, about
+title: Cinderella 3D
 ---
 
 ## About Cindy 3D ## {#about}
 
 Cindy 3D is a Plug-In to the dynamic geometry software [Cinderella][].
-It was created by [Matthias Reitinger][] and Jan Sommer in 2010 and 2011,
+It was created by [Matthias Reitinger][] and Jan Sommer between 2010 and 2012,
 and is currently maintained by [Martin von Gagern][].
 The 3D rendering is done through OpenGL using [JOGL][].
 The project is licensed under the [BSD two-clause license][license].
@@ -48,27 +47,29 @@ or install an appropriate version.
 
 ## Building from source ## {#build}
 
-In order to build Cindy3D from source,
-obtain a copy of the working tree from GitHub.
-You can do so either by downloading a zip or tar file from this page here,
-or by cloning the git repository.
-The `Cindy3D` subdirectory of the working tree
-(which will probably be called `Cindy3D` as well,
-so you have two directories of the same name nested one inside the other)
-contains a `build.xml` file for [Apache Ant][].
-There are several supported targets, which you can list using `ant -p`.
-The most important target is `bundles`.
-So by running `ant -p bundles` in that directory,
-you should be able to create a bunch of zip files
-like the ones described above, located in a subdirectory called `bundles`.
-The build process will download all required dependencies
-from the Internet automatically.
+[Instructions on building the plugin from source][readme]
+are available from the [GitHub repository][repository].
 
- [Apache Ant]: http://ant.apache.org/
+ [readme]: https://github.com/gagern/Cindy3D/blob/jogl2/README.md
+ [repository]: https://github.com/gagern/Cindy3D
 
 ## Using the plugin ## {#use}
 
-Documentation on how to use this plugin is currently under construction.
+Perhaps the most useful piece of documentation which is available
+right now is the [command reference][refhtml],
+which is also [available as pdf][refpdf].
+It might be slightly outdated, but in general it should describe
+all the commands the plugin does provide.
+There also is a [project documentation][doc], available as pdf,
+but it is incomplete in many places and already outdated in others.
+
+We intend to update all of these documents eventually,
+so hopefully we will be able to provide up-to-date and
+easy-to-use documentation one day.
+
+ [refhtml]: Reference/CommandReference.html
+ [refpdf]: Reference/CommandReference.pdf
+ [doc]: Documentation/Cindy3D_doc.pdf
 
 ## Bugs and feature requests ## {#bugs}
 
