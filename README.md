@@ -2,7 +2,7 @@
 
 This is the source code for Cindy 3D,
 a 3D plugin for the [Cinderella][] interactive geometry software.
-It was created by [Matthias Reitinger][] and Jan Sommer in 2010 and 2011,
+It was created by [Matthias Reitinger][] and Jan Sommer between 2010 and 2012,
 and is currently maintained by [Martin von Gagern][].
 The 3D rendering is done through OpenGL using [JOGL][].
 The project is licensed under the [BSD two-clause license][license].
