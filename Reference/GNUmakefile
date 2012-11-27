@@ -22,6 +22,9 @@ documented_commands.txt: CommandReference.html
 clean:
 	$(RM) $(addprefix CommandReference.,html tex pdf aux log out)
 
-.PHONY: all clean
+page:
+	python3 mkPage.py ../../Cindy3D-Pages/Reference
+
+.PHONY: all clean page
 
 .DELETE_ON_ERROR:
