@@ -1,6 +1,6 @@
 ---
 layout: main
-title: Cinderella 3D
+title: Cindy 3D
 ---
 
 ## About Cindy 3D ## {#about}
