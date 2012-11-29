@@ -151,6 +151,7 @@
 
   <target name="bundle">
     <fail unless="arch">Do not call this target directly!</fail>
+    <property name="release" value=""/>
     <zip destfile="bundles/Cindy3D${release}-${arch}.zip">
       <zipfileset prefix="Cindy3D" dir="." includes="Cindy3D.jar"/>
       <zipfileset prefix="Cindy3D" dir="${3rdpartydir}"
