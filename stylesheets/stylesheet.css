@@ -1,4 +1,5 @@
 /*******************************************************************************
+Originally based on the
 Slate Theme for Github Pages
 by Jason Costello, @jsncostello
 *******************************************************************************/
@@ -52,65 +53,37 @@ a:focus {
 }
 
 /*******************************************************************************
-Theme Styles
+Overall style
 *******************************************************************************/
 
 body {
-  box-sizing: border-box;
-  color:#373737;
+  color: #373737;
   background: #212121;
-  font-size: 16px;
-  font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+  font-family: 'Bitstream Vera Sans', 'DejaVu Sans',
+               Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+  font-weight: 700;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 10px 0;
-  font-weight: 700;
-  color:#222222;
-  font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
-  letter-spacing: -1px;
+  margin: 1ex 0em;
 }
 
-h1 {
-  font-size: 36px;
-  font-weight: 700;
-}
-
-h2 {
-  padding-bottom: 10px;
-  font-size: 32px;
-  background: url('../images/bg_hr.png') repeat-x bottom;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 21px;
-}
-
-h5 {
-  font-size: 18px;
-}
-
-h6 {
-  font-size: 16px;
-}
+h1 { font-size: 250%; color: #000066; margin-top: 3ex; margin-left: 0.8em; }
+h2 { font-size: 180%; color: #005500; margin-top: 2ex; margin-left: 2.2em; }
+h3 { font-size: 150%; color: #440000; margin-left: 4em; }
+h4 { font-size: 120%; color: #222200; margin-left: 6.6em; }
 
 p {
-  margin: 10px 0 15px 0;
-}
-
-footer p {
-  color: #f2f2f2;
+  margin: 0ex 0em 2ex;
 }
 
 a {
   text-decoration: none;
-  color: #007edf;
+  color: #0066cc;
   text-shadow: none;
 
   transition: color 0.5s ease;
@@ -126,141 +99,78 @@ a {
 }
 
 #main_content a:hover {
-  color: #0069ba;
-  text-shadow: #0090ff 0px 0px 2px;
+  color: #0033ee;
+  text-shadow: #009999 0px 1px 3px;
 }
 
-footer a:hover {
-  color: #43adff;
-  text-shadow: #0090ff 0px 0px 2px;
+pre, code, tt {
+  color: #330000;
+  background-color: #ffffdd;
+  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco,
+               'Lucida Console', Terminal, monospace;
 }
 
-em {
-  font-style: italic;
-}
-
-strong {
-  font-weight: bold;
-}
-
-img {
-  position: relative;
-  margin: 0 auto;
-  max-width: 739px;
-  padding: 5px;
-  margin: 10px 0 10px 0;
-  border: 1px solid #ebebeb;
-
-  box-shadow: 0 0 5px #ebebeb;
-  -webkit-box-shadow: 0 0 5px #ebebeb;
-  -moz-box-shadow: 0 0 5px #ebebeb;
-  -o-box-shadow: 0 0 5px #ebebeb;
-  -ms-box-shadow: 0 0 5px #ebebeb;
-}
-
-pre, code {
-  width: 100%;
-  color: #222;
-  background-color: #fff;
-
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  font-size: 14px;
-
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-
-
-
+code, tt {
+  padding: 2px;
 }
 
 pre {
-  width: 100%;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  width: 90%;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  padding: 1ex 1em;
+  margin: 2ex 0em;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 10px rgba(0,0,0,.1);
   overflow: auto;
 }
 
-code {
-  padding: 3px;
-  margin: 0 3px;
-  box-shadow: 0 0 10px rgba(0,0,0,.1);
+table {
+  margin-bottom: 4ex;
 }
 
-pre code {
-  display: block;
-  box-shadow: none;
+td, th {
+  border: 1px solid #003300;
 }
 
-blockquote {
-  color: #666;
-  margin-bottom: 20px;
-  padding: 0 0 0 20px;
-  border-left: 3px solid #bbb;
+th {
+  padding: 1.5ex 3em 1ex;
+  text-align: center;
+  background: #aaffcc;
+  color: #004400;
 }
 
-ul, ol, dl {
-  margin-bottom: 15px
-}
-
-ul li {
-  list-style: inside;
-  padding-left: 20px;
-}
-
-ol li {
-  list-style: decimal inside;
-  padding-left: 20px;
+td {
+  padding: 0.2ex 1em;
+  border: 1px solid #373737;
+  text-align: left;
 }
 
 dl dt {
   font-weight: bold;
+  color: #990033;
 }
 
 dl dd {
-  padding-left: 20px;
-  font-style: italic;
+  padding-left: 2em;
 }
 
-dl p {
-  padding-left: 20px;
-  font-style: italic;
+dl.docutils>dt {
+  float: left;
+  clear: left;
+  width: 10em;
+  padding: 0.5ex 0em 0ex;
+  margin: 0px;
+  text-align: right;
 }
 
-hr {
-  height: 1px;
-  margin-bottom: 5px;
-  border: none;
-  background: url('../images/bg_hr.png') repeat-x center;
+dl.docutils>dd {
+  margin: 0 0 0 10em;
+  padding: 0.5ex 0.5em;
 }
 
-table {
-  border: 1px solid #373737;
-  margin-bottom: 20px;
-  text-align: left;
- }
-
-th {
-  font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 10px;
-  background: #373737;
-  color: #fff;
- }
-
-td {
-  padding: 10px;
-  border: 1px solid #373737;
- }
-
-form {
-  background: #f2f2f2;
-  padding: 20px;
-}
-
-img {
-  width: 100%;
-  max-width: 100%;
-}
+.contents ul { margin-left: 2em; }
 
 /*******************************************************************************
 Full-Width Styles
@@ -272,7 +182,6 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
   padding: 20px 10px;
   margin: 0 auto;
 }
@@ -305,6 +214,17 @@ Full-Width Styles
   padding: 50px 10px 30px 10px;
 }
 
+#header_wrap h1 {
+  margin: 0px 1em;
+  color: #cceeff;
+  font-size: 200%;
+}
+
+#header_wrap h2 {
+  margin: 0px 3em;
+  font-size: 120%;
+}
+
 #project_title {
   margin: 0;
   color: #fff;
@@ -321,45 +241,6 @@ Full-Width Styles
   text-shadow: #111 0px 0px 10px;
 }
 
-#downloads {
-  position: absolute;
-  width: 210px;
-  z-index: 10;
-  bottom: -40px;
-  right: 0;
-  height: 70px;
-  background: url('../images/icon_download.png') no-repeat 0% 90%;
-}
-
-.zip_download_link {
-  display: block;
-  float: right;
-  width: 90px;
-  height:70px;
-  text-indent: -5000px;
-  overflow: hidden;
-  background: url(../images/sprite_download.png) no-repeat bottom left;
-}
-
-.tar_download_link {
-  display: block;
-  float: right;
-  width: 90px;
-  height:70px;
-  text-indent: -5000px;
-  overflow: hidden;
-  background: url(../images/sprite_download.png) no-repeat bottom right;
-  margin-left: 10px;
-}
-
-.zip_download_link:hover {
-  background: url(../images/sprite_download.png) no-repeat top left;
-}
-
-.tar_download_link:hover {
-  background: url(../images/sprite_download.png) no-repeat top right;
-}
-
 #main_content_wrap {
   background: #f2f2f2;
   border-top: 1px solid #111;
@@ -374,58 +255,6 @@ Full-Width Styles
   background: #212121;
 }
 
-
-
-/*******************************************************************************
-Small Device Styles
-*******************************************************************************/
-
-@media screen and (max-width: 480px) {
-  body {
-    font-size:14px;
-  }
-
-  #downloads {
-    display: none;
-  }
-
-  .inner {
-    min-width: 320px;
-    max-width: 480px;
-  }
-
-  #project_title {
-  font-size: 32px;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  h3 {
-    font-size: 21px;
-  }
-
-  h4 {
-    font-size: 18px;
-  }
-
-  h5 {
-    font-size: 14px;
-  }
-
-  h6 {
-    font-size: 12px;
-  }
-
-  code, pre {
-    min-width: 320px;
-    max-width: 480px;
-    font-size: 11px;
-  }
-
+footer p {
+  color: #f2f2f2;
 }
