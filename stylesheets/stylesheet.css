@@ -81,6 +81,14 @@ p {
   margin: 0ex 0em 2ex;
 }
 
+em, i {
+  font-variant: italic;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
 a {
   text-decoration: none;
   color: #0066cc;
