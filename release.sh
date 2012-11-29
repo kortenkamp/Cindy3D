@@ -8,6 +8,7 @@ if [[ -z $release ]]; then
 fi
 set -e
 
+ant -f Cindy3D/build.xml clean
 ant -Drelease="-${release}" -f Cindy3D/build.xml bundles
 
 github-upload.py -u "${owner}" -p "${passwd}" -r "${repo}" \
