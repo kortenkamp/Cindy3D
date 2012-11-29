@@ -348,17 +348,17 @@ public class Util {
 		JNILibLoaderBase.setLoadingAction(new LoaderAction() {
 			@Override
 			public void loadLibrary(String libname, String[] preload,
-					boolean preloadIgnoreError) {
+					boolean preloadIgnoreError, ClassLoader cl) {
 				if (preload != null) {
 					for (String preloadLibname : preload) {
-						loadLibrary(preloadLibname, preloadIgnoreError);
+						loadLibrary(preloadLibname, preloadIgnoreError, cl);
 					}
 				}
-				loadLibrary(libname, false);
+				loadLibrary(libname, false, cl);
 			}
 
 			@Override
-			public boolean loadLibrary(String libname, boolean ignoreError) {
+			public boolean loadLibrary(String libname, boolean ignoreError, ClassLoader cl) {
 				boolean result = true;
 				Util.getLogger().info("Requested library " + libname);
 				try {

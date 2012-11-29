@@ -98,7 +98,7 @@ public class JOGLViewer extends MouseAdapter implements Cindy3DViewer,
 
 		try {
 			Util.getLogger().info("Trying to call GLProfile.initSingleton");
-			GLProfile.initSingleton(true);
+			GLProfile.initSingleton();
 		} catch (Exception e) {
 			Util.getLogger().log(Level.SEVERE, e.toString(), e);
 		}
