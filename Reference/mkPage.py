@@ -43,7 +43,7 @@ with open('CommandReference.html', 'w', encoding='utf-8') as f:
 ---
 layout: main
 title: Cindy 3D {title}
-styles: {cssn}
+styles: [{cssn}, ../stylesheets/docutils-overrides.css]
 topdir: ../
 ---
 {body}'''.format_map(locals()))

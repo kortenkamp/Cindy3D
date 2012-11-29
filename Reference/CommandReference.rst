@@ -2,6 +2,12 @@
 Command reference
 =================
 
+.. sectnum::
+   :depth: 2
+
+.. contents::
+   :depth: 2
+
 Object appearance
 -----------------
 
