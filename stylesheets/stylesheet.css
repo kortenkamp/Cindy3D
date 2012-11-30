@@ -123,7 +123,6 @@ code, tt {
 }
 
 pre {
-  width: 90%;
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -178,7 +177,21 @@ dl.docutils>dd {
   padding: 0.5ex 0.5em;
 }
 
-.contents ul { margin-left: 2em; }
+.contents ul { margin-left: 0em; }
+.contents ul ul { margin-left: 2em; }
+.contents ul li { font-weight: 700; }
+.contents ul ul li { font-weight: 400; }
+.contents a { color: inherit; }
+.contents {
+  background: #fff;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  padding: 1ex 1em;
+  margin: 2ex 0em;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 10px rgba(0,0,0,.1);
+}
 
 /*******************************************************************************
 Full-Width Styles
