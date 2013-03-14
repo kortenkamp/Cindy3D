@@ -11,6 +11,8 @@ and is currently maintained by [Martin von Gagern][].
 The 3D rendering is done through OpenGL using [JOGL][].
 The project is licensed under the [BSD two-clause license][license].
 
+To see what Cindy 3D can do, have a look at [these examples][examples].
+
  [Cinderella]: http://www.cinderella.de/
  [Matthias Reitinger]: https://github.com/reima
  [Martin von Gagern]: https://github.com/gagern
@@ -55,6 +57,9 @@ are available from the [GitHub repository][repository].
 
 ## Using the plugin ## {#use}
 
+For a quick start, have a look at our [examples] and modify the code
+of one of these to suite your needs.
+
 Perhaps the most useful piece of documentation which is available
 right now is the [command reference][refhtml],
 which is also [available as pdf][refpdf].
@@ -67,6 +72,7 @@ We intend to update all of these documents eventually,
 so hopefully we will be able to provide up-to-date and
 easy-to-use documentation one day.
 
+ [examples]: Examples/
  [refhtml]: Reference/CommandReference.html
  [refpdf]: Reference/CommandReference.pdf
  [doc]: Documentation/Cindy3D_doc.pdf
