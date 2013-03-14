@@ -1,0 +1,38 @@
+table.examples td {
+  border-width: 0px;
+  padding: 0.2ex 1em;
+  margin: 0px;
+  vertical-align: top;
+}
+table.examples td h2 {
+  margin-top: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-left: 0px;
+}
+table.examples td img {
+  vertical-align: top;
+  width: 420px;
+  display: block;
+}
+table.examples td pre {
+  margin-top: 0px;
+  vertical-align: top;
+}
+table.examples p.download {
+  margin-top: 1ex;
+}
+table.examples p.download a {
+  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco,
+               'Lucida Console', Terminal, monospace;
+}
+.cs-id { color: #993300; }
+.cs-fn { color: #0000aa; }
+.cs-ufn { color: #6600aa; }
+.cs-ctrl { color: #0000ff; }
+.cs-comment { color: #999999; }
+.cs-c3d { color: #0000aa; font-weight: bold; }
+.cs-str { color: #009900; }
+.cs-geo { color: #006600; }
+.cs-prop { color: #006699; }
+.cs-opt { color: #660099; }
