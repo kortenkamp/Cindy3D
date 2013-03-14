@@ -9,69 +9,95 @@ topdir: ../
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="auto-toc simple">
-<li><a class="reference internal" href="#object-appearance" id="id48">1&nbsp;&nbsp;&nbsp;Object appearance</a><ul class="auto-toc">
-<li><a class="reference internal" href="#saving-the-default-appearance-gsave3d" id="id49">1.1&nbsp;&nbsp;&nbsp;Saving the default appearance: <tt class="docutils literal">gsave3d()</tt></a></li>
-<li><a class="reference internal" href="#restoring-the-default-appearance-grestore3d" id="id50">1.2&nbsp;&nbsp;&nbsp;Restoring the default appearance: <tt class="docutils literal">grestore3d()</tt></a></li>
-<li><a class="reference internal" href="#set-default-color-color3d-colorvec" id="id51">1.3&nbsp;&nbsp;&nbsp;Set default color: <tt class="docutils literal"><span class="pre">color3d(&lt;colorvec&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-point-color-pointcolor3d-colorvec" id="id52">1.4&nbsp;&nbsp;&nbsp;Set default point color: <tt class="docutils literal"><span class="pre">pointcolor3d(&lt;colorvec&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-line-color-linecolor3d-colorvec" id="id53">1.5&nbsp;&nbsp;&nbsp;Set default line color: <tt class="docutils literal"><span class="pre">linecolor3d(&lt;colorvec&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-surface-color-surfacecolor3d-colorvec" id="id54">1.6&nbsp;&nbsp;&nbsp;Set default surface color: <tt class="docutils literal"><span class="pre">surfacecolor3d(&lt;colorvec&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-opacity-alpha3d-real-or-surfacealpha3d-real" id="id55">1.7&nbsp;&nbsp;&nbsp;Set default opacity: <tt class="docutils literal"><span class="pre">alpha3d(&lt;real&gt;)</span></tt> or <tt class="docutils literal"><span class="pre">surfacealpha3d(&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-shininess-shininess3d-real" id="id56">1.8&nbsp;&nbsp;&nbsp;Set default shininess: <tt class="docutils literal"><span class="pre">shininess3d(&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-point-shininess-pointshininess3d-real" id="id57">1.9&nbsp;&nbsp;&nbsp;Set default point shininess: <tt class="docutils literal"><span class="pre">pointshininess3d(&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-line-shininess-lineshininess3d-real" id="id58">1.10&nbsp;&nbsp;&nbsp;Set default line shininess: <tt class="docutils literal"><span class="pre">lineshininess3d(&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-surface-shininess-surfaceshininess3d-real" id="id59">1.11&nbsp;&nbsp;&nbsp;Set default surface shininess: <tt class="docutils literal"><span class="pre">surfaceshininess3d(&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-size-size3d-real" id="id60">1.12&nbsp;&nbsp;&nbsp;Set default size: <tt class="docutils literal"><span class="pre">size3d(&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-point-size-pointsize3d-real" id="id61">1.13&nbsp;&nbsp;&nbsp;Set default point size: <tt class="docutils literal"><span class="pre">pointsize3d(&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-default-line-size-linesize3d-real" id="id62">1.14&nbsp;&nbsp;&nbsp;Set default line size: <tt class="docutils literal"><span class="pre">linesize3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#initialization-and-execution" id="id51">1&nbsp;&nbsp;&nbsp;Initialization and Execution</a><ul class="auto-toc">
+<li><a class="reference internal" href="#begin3d-0" id="id52">1.1&nbsp;&nbsp;&nbsp;Starting a sequence of 3D commands: <tt class="docutils literal">begin3d()</tt></a></li>
+<li><a class="reference internal" href="#end3d-0" id="id53">1.2&nbsp;&nbsp;&nbsp;Finishing a sequence of 3D commands: <tt class="docutils literal">end3d()</tt></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#drawing" id="id63">2&nbsp;&nbsp;&nbsp;Drawing</a><ul class="auto-toc">
-<li><a class="reference internal" href="#drawing-points-draw3d-point" id="id64">2.1&nbsp;&nbsp;&nbsp;Drawing points: <tt class="docutils literal"><span class="pre">draw3d(&lt;point&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#drawing-lines-draw3d-point1-point2" id="id65">2.2&nbsp;&nbsp;&nbsp;Drawing lines: <tt class="docutils literal"><span class="pre">draw3d(&lt;point1&gt;,&lt;point2&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#connecting-points-connect3d-list" id="id66">2.3&nbsp;&nbsp;&nbsp;Connecting points: <tt class="docutils literal"><span class="pre">connect3d(&lt;list&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#drawing-a-polygon-outline-drawpoly3d-list" id="id67">2.4&nbsp;&nbsp;&nbsp;Drawing a polygon outline: <tt class="docutils literal"><span class="pre">drawpoly3d(&lt;list&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#drawing-a-filled-polygon-fillpoly3d-list" id="id68">2.5&nbsp;&nbsp;&nbsp;Drawing a filled polygon: <tt class="docutils literal"><span class="pre">fillpoly3d(&lt;list&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#drawing-a-filled-polygon-with-custom-normals-fillpoly3d-list1-list2" id="id69">2.6&nbsp;&nbsp;&nbsp;Drawing a filled polygon with custom normals: <tt class="docutils literal"><span class="pre">fillpoly3d(&lt;list1&gt;,&lt;list2&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#drawing-a-filled-circle-fillcircle3d-point-vec-real" id="id70">2.7&nbsp;&nbsp;&nbsp;Drawing a filled circle: <tt class="docutils literal"><span class="pre">fillcircle3d(&lt;point&gt;,&lt;vec&gt;,&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#drawing-a-sphere-drawsphere3d-point-real" id="id71">2.8&nbsp;&nbsp;&nbsp;Drawing a sphere: <tt class="docutils literal"><span class="pre">drawsphere3d(&lt;point&gt;,&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#drawing-a-mesh-mesh3d-int1-int2-list" id="id72">2.9&nbsp;&nbsp;&nbsp;Drawing a mesh: <tt class="docutils literal"><span class="pre">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#drawing-a-mesh-with-custom-normals-mesh3d-int1-int2-list1-list2" id="id73">2.10&nbsp;&nbsp;&nbsp;Drawing a mesh with custom normals: <tt class="docutils literal"><span class="pre">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list1&gt;,&lt;list2&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#object-appearance" id="id54">2&nbsp;&nbsp;&nbsp;Object appearance</a><ul class="auto-toc">
+<li><a class="reference internal" href="#gsave3d-0" id="id55">2.1&nbsp;&nbsp;&nbsp;Saving the default appearance: <tt class="docutils literal">gsave3d()</tt></a></li>
+<li><a class="reference internal" href="#grestore3d-0" id="id56">2.2&nbsp;&nbsp;&nbsp;Restoring the default appearance: <tt class="docutils literal">grestore3d()</tt></a></li>
+<li><a class="reference internal" href="#color3d-1" id="id57">2.3&nbsp;&nbsp;&nbsp;Set default color: <tt class="docutils literal"><span class="pre">color3d(&lt;colorvec&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#pointcolor3d-1" id="id58">2.4&nbsp;&nbsp;&nbsp;Set default point color: <tt class="docutils literal"><span class="pre">pointcolor3d(&lt;colorvec&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#linecolor3d-1" id="id59">2.5&nbsp;&nbsp;&nbsp;Set default line color: <tt class="docutils literal"><span class="pre">linecolor3d(&lt;colorvec&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#surfacecolor3d-1" id="id60">2.6&nbsp;&nbsp;&nbsp;Set default surface color: <tt class="docutils literal"><span class="pre">surfacecolor3d(&lt;colorvec&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#alpha3d-1" id="id61">2.7&nbsp;&nbsp;&nbsp;Set default opacity: <tt class="docutils literal"><span class="pre">alpha3d(&lt;real&gt;)</span></tt> or <tt class="docutils literal"><span class="pre">surfacealpha3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#shininess3d-1" id="id62">2.8&nbsp;&nbsp;&nbsp;Set default shininess: <tt class="docutils literal"><span class="pre">shininess3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#pointshininess3d-1" id="id63">2.9&nbsp;&nbsp;&nbsp;Set default point shininess: <tt class="docutils literal"><span class="pre">pointshininess3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#lineshininess3d-1" id="id64">2.10&nbsp;&nbsp;&nbsp;Set default line shininess: <tt class="docutils literal"><span class="pre">lineshininess3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#surfaceshininess3d-1" id="id65">2.11&nbsp;&nbsp;&nbsp;Set default surface shininess: <tt class="docutils literal"><span class="pre">surfaceshininess3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#size3d-1" id="id66">2.12&nbsp;&nbsp;&nbsp;Set default size: <tt class="docutils literal"><span class="pre">size3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#pointsize3d-1" id="id67">2.13&nbsp;&nbsp;&nbsp;Set default point size: <tt class="docutils literal"><span class="pre">pointsize3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#linesize3d-1" id="id68">2.14&nbsp;&nbsp;&nbsp;Set default line size: <tt class="docutils literal"><span class="pre">linesize3d(&lt;real&gt;)</span></tt></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lighting-and-scene-appearance" id="id74">3&nbsp;&nbsp;&nbsp;Lighting and scene appearance</a><ul class="auto-toc">
-<li><a class="reference internal" href="#set-background-color-background3d-colorvec" id="id75">3.1&nbsp;&nbsp;&nbsp;Set background color: <tt class="docutils literal"><span class="pre">background3d(&lt;colorvec&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#position-the-camera-lookat3d-point1-point2-vec" id="id76">3.2&nbsp;&nbsp;&nbsp;Position the camera: <tt class="docutils literal"><span class="pre">lookat3d(&lt;point1&gt;,&lt;point2&gt;,&lt;vec&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-field-of-view-fieldofview3d-real" id="id77">3.3&nbsp;&nbsp;&nbsp;Set field of view: <tt class="docutils literal"><span class="pre">fieldofview3d(&lt;real&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-visible-depth-range-depthrange3d-real1-real2" id="id78">3.4&nbsp;&nbsp;&nbsp;Set visible depth range: <tt class="docutils literal"><span class="pre">depthrange3d(&lt;real1&gt;,&lt;real2&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-rendering-hints-renderhints3d" id="id79">3.5&nbsp;&nbsp;&nbsp;Set rendering hints: <tt class="docutils literal">renderhints3d()</tt></a></li>
-<li><a class="reference internal" href="#set-up-a-point-light-pointlight3d-int" id="id80">3.6&nbsp;&nbsp;&nbsp;Set up a point light: <tt class="docutils literal"><span class="pre">pointlight3d(&lt;int&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-up-a-directional-light-directionallight3d-int" id="id81">3.7&nbsp;&nbsp;&nbsp;Set up a directional light: <tt class="docutils literal"><span class="pre">directionallight3d(&lt;int&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#set-up-a-spot-light-spotlight3d-int" id="id82">3.8&nbsp;&nbsp;&nbsp;Set up a spot light: <tt class="docutils literal"><span class="pre">spotlight3d(&lt;int&gt;)</span></tt></a></li>
-<li><a class="reference internal" href="#disable-a-light-source-disablelight3d-int" id="id83">3.9&nbsp;&nbsp;&nbsp;Disable a light source: <tt class="docutils literal"><span class="pre">disablelight3d(&lt;int&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#drawing" id="id69">3&nbsp;&nbsp;&nbsp;Drawing</a><ul class="auto-toc">
+<li><a class="reference internal" href="#draw3d-1" id="id70">3.1&nbsp;&nbsp;&nbsp;Drawing points: <tt class="docutils literal"><span class="pre">draw3d(&lt;point&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#draw3d-2" id="id71">3.2&nbsp;&nbsp;&nbsp;Drawing lines: <tt class="docutils literal"><span class="pre">draw3d(&lt;point1&gt;,&lt;point2&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#connect3d-1" id="id72">3.3&nbsp;&nbsp;&nbsp;Connecting points: <tt class="docutils literal"><span class="pre">connect3d(&lt;list&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#drawpoly3d-1" id="id73">3.4&nbsp;&nbsp;&nbsp;Drawing a polygon outline: <tt class="docutils literal"><span class="pre">drawpoly3d(&lt;list&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#fillpoly3d-1" id="id74">3.5&nbsp;&nbsp;&nbsp;Drawing a filled polygon: <tt class="docutils literal"><span class="pre">fillpoly3d(&lt;list&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#fillpoly3d-2" id="id75">3.6&nbsp;&nbsp;&nbsp;Drawing a filled polygon with custom normals: <tt class="docutils literal"><span class="pre">fillpoly3d(&lt;list1&gt;,&lt;list2&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#fillcircle3d-3" id="id76">3.7&nbsp;&nbsp;&nbsp;Drawing a filled circle: <tt class="docutils literal"><span class="pre">fillcircle3d(&lt;point&gt;,&lt;vec&gt;,&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#drawsphere3d-2" id="id77">3.8&nbsp;&nbsp;&nbsp;Drawing a sphere: <tt class="docutils literal"><span class="pre">drawsphere3d(&lt;point&gt;,&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#mesh3d-3" id="id78">3.9&nbsp;&nbsp;&nbsp;Drawing a mesh: <tt class="docutils literal"><span class="pre">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#mesh3d-4" id="id79">3.10&nbsp;&nbsp;&nbsp;Drawing a mesh with custom normals: <tt class="docutils literal"><span class="pre">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list1&gt;,&lt;list2&gt;)</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lighting-and-scene-appearance" id="id80">4&nbsp;&nbsp;&nbsp;Lighting and scene appearance</a><ul class="auto-toc">
+<li><a class="reference internal" href="#background3d-1" id="id81">4.1&nbsp;&nbsp;&nbsp;Set background color: <tt class="docutils literal"><span class="pre">background3d(&lt;colorvec&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#lookat3d-3" id="id82">4.2&nbsp;&nbsp;&nbsp;Position the camera: <tt class="docutils literal"><span class="pre">lookat3d(&lt;point1&gt;,&lt;point2&gt;,&lt;vec&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#fieldofview3d-1" id="id83">4.3&nbsp;&nbsp;&nbsp;Set field of view: <tt class="docutils literal"><span class="pre">fieldofview3d(&lt;real&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#depthrange3d-2" id="id84">4.4&nbsp;&nbsp;&nbsp;Set visible depth range: <tt class="docutils literal"><span class="pre">depthrange3d(&lt;real1&gt;,&lt;real2&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#renderhints3d-0" id="id85">4.5&nbsp;&nbsp;&nbsp;Set rendering hints: <tt class="docutils literal">renderhints3d()</tt></a></li>
+<li><a class="reference internal" href="#pointlight3d-1" id="id86">4.6&nbsp;&nbsp;&nbsp;Set up a point light: <tt class="docutils literal"><span class="pre">pointlight3d(&lt;int&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#directionallight3d-1" id="id87">4.7&nbsp;&nbsp;&nbsp;Set up a directional light: <tt class="docutils literal"><span class="pre">directionallight3d(&lt;int&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#spotlight3d-1" id="id88">4.8&nbsp;&nbsp;&nbsp;Set up a spot light: <tt class="docutils literal"><span class="pre">spotlight3d(&lt;int&gt;)</span></tt></a></li>
+<li><a class="reference internal" href="#disablelight3d-1" id="id89">4.9&nbsp;&nbsp;&nbsp;Disable a light source: <tt class="docutils literal"><span class="pre">disablelight3d(&lt;int&gt;)</span></tt></a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="object-appearance">
-<h1><a class="toc-backref" href="#id48">1&nbsp;&nbsp;&nbsp;Object appearance</a></h1>
-<div class="section" id="saving-the-default-appearance-gsave3d">
-<h2><a class="toc-backref" href="#id49">1.1&nbsp;&nbsp;&nbsp;Saving the default appearance: <tt class="docutils literal">gsave3d()</tt></a></h2>
+<div class="section" id="initialization-and-execution">
+<h1><a class="toc-backref" href="#id51">1&nbsp;&nbsp;&nbsp;Initialization and Execution</a></h1>
+<div class="section" id="begin3d-0">
+<h2><a class="toc-backref" href="#id52">1.1&nbsp;&nbsp;&nbsp;Starting a sequence of 3D commands: <tt class="docutils literal">begin3d()</tt></a></h2>
 <div class="section" id="description">
+<h3>Description</h3>
+<p>This function must be called before any 3D drawing commands are
+executed. It initializes the Cindy3D subsystem, and starts recording
+drawing instructions. The actual drawing happens only once the scene
+is done and <tt class="docutils literal">end3d()</tt> is called.</p>
+</div>
+</div>
+<div class="section" id="end3d-0">
+<h2><a class="toc-backref" href="#id53">1.2&nbsp;&nbsp;&nbsp;Finishing a sequence of 3D commands: <tt class="docutils literal">end3d()</tt></a></h2>
+<div class="section" id="id1">
+<h3>Description</h3>
+<p>This command ends a sequence of 3D drawing commands, and renders the
+result to the Cindy3D display window.</p>
+</div>
+</div>
+</div>
+<div class="section" id="object-appearance">
+<h1><a class="toc-backref" href="#id54">2&nbsp;&nbsp;&nbsp;Object appearance</a></h1>
+<div class="section" id="gsave3d-0">
+<h2><a class="toc-backref" href="#id55">2.1&nbsp;&nbsp;&nbsp;Saving the default appearance: <tt class="docutils literal">gsave3d()</tt></a></h2>
+<div class="section" id="id2">
 <h3>Description</h3>
 <p>Saves the current default appearance by pushing it onto the appearance stack.</p>
 </div>
 </div>
-<div class="section" id="restoring-the-default-appearance-grestore3d">
-<h2><a class="toc-backref" href="#id50">1.2&nbsp;&nbsp;&nbsp;Restoring the default appearance: <tt class="docutils literal">grestore3d()</tt></a></h2>
-<div class="section" id="id1">
+<div class="section" id="grestore3d-0">
+<h2><a class="toc-backref" href="#id56">2.2&nbsp;&nbsp;&nbsp;Restoring the default appearance: <tt class="docutils literal">grestore3d()</tt></a></h2>
+<div class="section" id="id3">
 <h3>Description</h3>
 <p>Restores the default appearance which was last saved on the appearance stack.</p>
 </div>
 </div>
-<div class="section" id="set-default-color-color3d-colorvec">
-<h2><a class="toc-backref" href="#id51">1.3&nbsp;&nbsp;&nbsp;Set default color: <tt class="docutils literal"><span class="pre">color3d(&lt;colorvec&gt;)</span></tt></a></h2>
-<div class="section" id="id2">
+<div class="section" id="color3d-1">
+<h2><a class="toc-backref" href="#id57">2.3&nbsp;&nbsp;&nbsp;Set default color: <tt class="docutils literal"><span class="pre">color3d(&lt;colorvec&gt;)</span></tt></a></h2>
+<div class="section" id="id4">
 <h3>Description</h3>
 <p>Sets the default color for all types of objects.</p>
 <dl class="docutils">
@@ -80,9 +106,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-point-color-pointcolor3d-colorvec">
-<h2><a class="toc-backref" href="#id52">1.4&nbsp;&nbsp;&nbsp;Set default point color: <tt class="docutils literal"><span class="pre">pointcolor3d(&lt;colorvec&gt;)</span></tt></a></h2>
-<div class="section" id="id3">
+<div class="section" id="pointcolor3d-1">
+<h2><a class="toc-backref" href="#id58">2.4&nbsp;&nbsp;&nbsp;Set default point color: <tt class="docutils literal"><span class="pre">pointcolor3d(&lt;colorvec&gt;)</span></tt></a></h2>
+<div class="section" id="id5">
 <h3>Description</h3>
 <p>Sets the default color for points.</p>
 <dl class="docutils">
@@ -91,9 +117,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-line-color-linecolor3d-colorvec">
-<h2><a class="toc-backref" href="#id53">1.5&nbsp;&nbsp;&nbsp;Set default line color: <tt class="docutils literal"><span class="pre">linecolor3d(&lt;colorvec&gt;)</span></tt></a></h2>
-<div class="section" id="id4">
+<div class="section" id="linecolor3d-1">
+<h2><a class="toc-backref" href="#id59">2.5&nbsp;&nbsp;&nbsp;Set default line color: <tt class="docutils literal"><span class="pre">linecolor3d(&lt;colorvec&gt;)</span></tt></a></h2>
+<div class="section" id="id6">
 <h3>Description</h3>
 <p>Sets the default color for lines.</p>
 <dl class="docutils">
@@ -102,9 +128,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-surface-color-surfacecolor3d-colorvec">
-<h2><a class="toc-backref" href="#id54">1.6&nbsp;&nbsp;&nbsp;Set default surface color: <tt class="docutils literal"><span class="pre">surfacecolor3d(&lt;colorvec&gt;)</span></tt></a></h2>
-<div class="section" id="id5">
+<div class="section" id="surfacecolor3d-1">
+<h2><a class="toc-backref" href="#id60">2.6&nbsp;&nbsp;&nbsp;Set default surface color: <tt class="docutils literal"><span class="pre">surfacecolor3d(&lt;colorvec&gt;)</span></tt></a></h2>
+<div class="section" id="id7">
 <h3>Description</h3>
 <p>Sets the default surface color.</p>
 <dl class="docutils">
@@ -113,9 +139,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-opacity-alpha3d-real-or-surfacealpha3d-real">
-<h2><a class="toc-backref" href="#id55">1.7&nbsp;&nbsp;&nbsp;Set default opacity: <tt class="docutils literal"><span class="pre">alpha3d(&lt;real&gt;)</span></tt> or <tt class="docutils literal"><span class="pre">surfacealpha3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id6">
+<div class="section" id="alpha3d-1">
+<span id="surfacealpha3d-1"></span><h2><a class="toc-backref" href="#id61">2.7&nbsp;&nbsp;&nbsp;Set default opacity: <tt class="docutils literal"><span class="pre">alpha3d(&lt;real&gt;)</span></tt> or <tt class="docutils literal"><span class="pre">surfacealpha3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id8">
 <h3>Description</h3>
 <p>Sets the default opacity value for surfaces.</p>
 <dl class="docutils">
@@ -124,9 +150,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-shininess-shininess3d-real">
-<h2><a class="toc-backref" href="#id56">1.8&nbsp;&nbsp;&nbsp;Set default shininess: <tt class="docutils literal"><span class="pre">shininess3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id7">
+<div class="section" id="shininess3d-1">
+<h2><a class="toc-backref" href="#id62">2.8&nbsp;&nbsp;&nbsp;Set default shininess: <tt class="docutils literal"><span class="pre">shininess3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id9">
 <h3>Description</h3>
 <p>Sets the default shininess factor for all types of objects.</p>
 <dl class="docutils">
@@ -135,9 +161,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-point-shininess-pointshininess3d-real">
-<h2><a class="toc-backref" href="#id57">1.9&nbsp;&nbsp;&nbsp;Set default point shininess: <tt class="docutils literal"><span class="pre">pointshininess3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id8">
+<div class="section" id="pointshininess3d-1">
+<h2><a class="toc-backref" href="#id63">2.9&nbsp;&nbsp;&nbsp;Set default point shininess: <tt class="docutils literal"><span class="pre">pointshininess3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id10">
 <h3>Description</h3>
 <p>Sets the default shininess factor for points.</p>
 <dl class="docutils">
@@ -146,9 +172,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-line-shininess-lineshininess3d-real">
-<h2><a class="toc-backref" href="#id58">1.10&nbsp;&nbsp;&nbsp;Set default line shininess: <tt class="docutils literal"><span class="pre">lineshininess3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id9">
+<div class="section" id="lineshininess3d-1">
+<h2><a class="toc-backref" href="#id64">2.10&nbsp;&nbsp;&nbsp;Set default line shininess: <tt class="docutils literal"><span class="pre">lineshininess3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id11">
 <h3>Description</h3>
 <p>Sets the default shininess factor for lines.</p>
 <dl class="docutils">
@@ -157,9 +183,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-surface-shininess-surfaceshininess3d-real">
-<h2><a class="toc-backref" href="#id59">1.11&nbsp;&nbsp;&nbsp;Set default surface shininess: <tt class="docutils literal"><span class="pre">surfaceshininess3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id10">
+<div class="section" id="surfaceshininess3d-1">
+<h2><a class="toc-backref" href="#id65">2.11&nbsp;&nbsp;&nbsp;Set default surface shininess: <tt class="docutils literal"><span class="pre">surfaceshininess3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id12">
 <h3>Description</h3>
 <p>Sets the default shininess factor for surfaces.</p>
 <dl class="docutils">
@@ -168,9 +194,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-size-size3d-real">
-<h2><a class="toc-backref" href="#id60">1.12&nbsp;&nbsp;&nbsp;Set default size: <tt class="docutils literal"><span class="pre">size3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id11">
+<div class="section" id="size3d-1">
+<h2><a class="toc-backref" href="#id66">2.12&nbsp;&nbsp;&nbsp;Set default size: <tt class="docutils literal"><span class="pre">size3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id13">
 <h3>Description</h3>
 <p>Sets the default size for points and lines.</p>
 <dl class="docutils">
@@ -179,9 +205,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-point-size-pointsize3d-real">
-<h2><a class="toc-backref" href="#id61">1.13&nbsp;&nbsp;&nbsp;Set default point size: <tt class="docutils literal"><span class="pre">pointsize3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id12">
+<div class="section" id="pointsize3d-1">
+<h2><a class="toc-backref" href="#id67">2.13&nbsp;&nbsp;&nbsp;Set default point size: <tt class="docutils literal"><span class="pre">pointsize3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id14">
 <h3>Description</h3>
 <p>Sets the default size for points.</p>
 <dl class="docutils">
@@ -190,9 +216,9 @@ topdir: ../
 </dl>
 </div>
 </div>
-<div class="section" id="set-default-line-size-linesize3d-real">
-<h2><a class="toc-backref" href="#id62">1.14&nbsp;&nbsp;&nbsp;Set default line size: <tt class="docutils literal"><span class="pre">linesize3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id13">
+<div class="section" id="linesize3d-1">
+<h2><a class="toc-backref" href="#id68">2.14&nbsp;&nbsp;&nbsp;Set default line size: <tt class="docutils literal"><span class="pre">linesize3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id15">
 <h3>Description</h3>
 <p>Sets the default size for lines.</p>
 <dl class="docutils">
@@ -203,10 +229,10 @@ topdir: ../
 </div>
 </div>
 <div class="section" id="drawing">
-<h1><a class="toc-backref" href="#id63">2&nbsp;&nbsp;&nbsp;Drawing</a></h1>
-<div class="section" id="drawing-points-draw3d-point">
-<h2><a class="toc-backref" href="#id64">2.1&nbsp;&nbsp;&nbsp;Drawing points: <tt class="docutils literal"><span class="pre">draw3d(&lt;point&gt;)</span></tt></a></h2>
-<div class="section" id="id14">
+<h1><a class="toc-backref" href="#id69">3&nbsp;&nbsp;&nbsp;Drawing</a></h1>
+<div class="section" id="draw3d-1">
+<h2><a class="toc-backref" href="#id70">3.1&nbsp;&nbsp;&nbsp;Drawing points: <tt class="docutils literal"><span class="pre">draw3d(&lt;point&gt;)</span></tt></a></h2>
+<div class="section" id="id16">
 <h3>Description</h3>
 <p>Draws a point.</p>
 <dl class="docutils">
@@ -246,9 +272,9 @@ topdir: ../
 </table>
 </div>
 </div>
-<div class="section" id="drawing-lines-draw3d-point1-point2">
-<h2><a class="toc-backref" href="#id65">2.2&nbsp;&nbsp;&nbsp;Drawing lines: <tt class="docutils literal"><span class="pre">draw3d(&lt;point1&gt;,&lt;point2&gt;)</span></tt></a></h2>
-<div class="section" id="id15">
+<div class="section" id="draw3d-2">
+<h2><a class="toc-backref" href="#id71">3.2&nbsp;&nbsp;&nbsp;Drawing lines: <tt class="docutils literal"><span class="pre">draw3d(&lt;point1&gt;,&lt;point2&gt;)</span></tt></a></h2>
+<div class="section" id="id17">
 <h3>Description</h3>
 <p>Draws an infinite line, ray or segment. The type of line to be drawn is
 specified by the &quot;type&quot; modifier. When no type is given, a segment is drawn by
@@ -281,7 +307,7 @@ default. The two arguments are interpreted depending on the line type:</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id16">
+<div class="section" id="id18">
 <h3>Modifiers</h3>
 <p>This function can handle the following modifiers:</p>
 <table border="1" class="docutils">
@@ -334,57 +360,15 @@ draw3d([1,1,1],[2,1,1],type-&gt;&quot;line&quot;,color-&gt;[1,1,0]);
 <p>[screenshot]</p>
 </div>
 </div>
-<div class="section" id="connecting-points-connect3d-list">
-<h2><a class="toc-backref" href="#id66">2.3&nbsp;&nbsp;&nbsp;Connecting points: <tt class="docutils literal"><span class="pre">connect3d(&lt;list&gt;)</span></tt></a></h2>
-<div class="section" id="id17">
+<div class="section" id="connect3d-1">
+<h2><a class="toc-backref" href="#id72">3.3&nbsp;&nbsp;&nbsp;Connecting points: <tt class="docutils literal"><span class="pre">connect3d(&lt;list&gt;)</span></tt></a></h2>
+<div class="section" id="id19">
 <h3>Description</h3>
 <p>Draws line segments connecting a sequence of points.</p>
 <dl class="docutils">
 <dt><tt class="docutils literal">&lt;list&gt;</tt></dt>
 <dd>the list of points to connect. For a list of <em>n</em> points, <em>n</em>-1 line segments
 are drawn.</dd>
-</dl>
-</div>
-<div class="section" id="id18">
-<h3>Modifiers</h3>
-<p>This function can handle the following modifiers:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="12%" />
-<col width="38%" />
-<col width="51%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Modifier</th>
-<th class="head">Parameter</th>
-<th class="head">Effect</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>size</td>
-<td><tt class="docutils literal">&lt;real&gt;</tt></td>
-<td>sets the line size</td>
-</tr>
-<tr><td>color</td>
-<td><tt class="docutils literal"><span class="pre">[&lt;real1&gt;,&lt;real2&gt;,&lt;real3&gt;]</span></tt></td>
-<td>sets the line color to an RGB value</td>
-</tr>
-<tr><td>shininess</td>
-<td><tt class="docutils literal">&lt;real&gt;</tt></td>
-<td>sets the shininess</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="drawing-a-polygon-outline-drawpoly3d-list">
-<h2><a class="toc-backref" href="#id67">2.4&nbsp;&nbsp;&nbsp;Drawing a polygon outline: <tt class="docutils literal"><span class="pre">drawpoly3d(&lt;list&gt;)</span></tt></a></h2>
-<div class="section" id="id19">
-<h3>Description</h3>
-<p>Draws the outline of a polygon.</p>
-<dl class="docutils">
-<dt><tt class="docutils literal">&lt;list&gt;</tt></dt>
-<dd>the vertices (corner points) defining the polygon</dd>
 </dl>
 </div>
 <div class="section" id="id20">
@@ -419,11 +403,11 @@ are drawn.</dd>
 </table>
 </div>
 </div>
-<div class="section" id="drawing-a-filled-polygon-fillpoly3d-list">
-<h2><a class="toc-backref" href="#id68">2.5&nbsp;&nbsp;&nbsp;Drawing a filled polygon: <tt class="docutils literal"><span class="pre">fillpoly3d(&lt;list&gt;)</span></tt></a></h2>
+<div class="section" id="drawpoly3d-1">
+<h2><a class="toc-backref" href="#id73">3.4&nbsp;&nbsp;&nbsp;Drawing a polygon outline: <tt class="docutils literal"><span class="pre">drawpoly3d(&lt;list&gt;)</span></tt></a></h2>
 <div class="section" id="id21">
 <h3>Description</h3>
-<p>Draws a filled polygon.</p>
+<p>Draws the outline of a polygon.</p>
 <dl class="docutils">
 <dt><tt class="docutils literal">&lt;list&gt;</tt></dt>
 <dd>the vertices (corner points) defining the polygon</dd>
@@ -447,35 +431,28 @@ are drawn.</dd>
 <tbody valign="top">
 <tr><td>size</td>
 <td><tt class="docutils literal">&lt;real&gt;</tt></td>
-<td>sets the surface size</td>
+<td>sets the line size</td>
 </tr>
 <tr><td>color</td>
 <td><tt class="docutils literal"><span class="pre">[&lt;real1&gt;,&lt;real2&gt;,&lt;real3&gt;]</span></tt></td>
-<td>sets the surface color to an RGB value</td>
+<td>sets the line color to an RGB value</td>
 </tr>
 <tr><td>shininess</td>
 <td><tt class="docutils literal">&lt;real&gt;</tt></td>
 <td>sets the shininess</td>
 </tr>
-<tr><td>alpha</td>
-<td><tt class="docutils literal">&lt;real&gt;</tt></td>
-<td>sets the opacity</td>
-</tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="section" id="drawing-a-filled-polygon-with-custom-normals-fillpoly3d-list1-list2">
-<h2><a class="toc-backref" href="#id69">2.6&nbsp;&nbsp;&nbsp;Drawing a filled polygon with custom normals: <tt class="docutils literal"><span class="pre">fillpoly3d(&lt;list1&gt;,&lt;list2&gt;)</span></tt></a></h2>
+<div class="section" id="fillpoly3d-1">
+<h2><a class="toc-backref" href="#id74">3.5&nbsp;&nbsp;&nbsp;Drawing a filled polygon: <tt class="docutils literal"><span class="pre">fillpoly3d(&lt;list&gt;)</span></tt></a></h2>
 <div class="section" id="id23">
 <h3>Description</h3>
-<p>Draws a filled polygon with user-defined normals.</p>
+<p>Draws a filled polygon.</p>
 <dl class="docutils">
-<dt><tt class="docutils literal">&lt;list1&gt;</tt></dt>
+<dt><tt class="docutils literal">&lt;list&gt;</tt></dt>
 <dd>the vertices (corner points) defining the polygon</dd>
-<dt><tt class="docutils literal">&lt;list2&gt;</tt></dt>
-<dd>the normal vectors of the polygon's vertices. The lengths of <tt class="docutils literal">&lt;list1&gt;</tt> and
-<tt class="docutils literal">&lt;list2&gt;</tt> must match.</dd>
 </dl>
 </div>
 <div class="section" id="id24">
@@ -514,18 +491,17 @@ are drawn.</dd>
 </table>
 </div>
 </div>
-<div class="section" id="drawing-a-filled-circle-fillcircle3d-point-vec-real">
-<h2><a class="toc-backref" href="#id70">2.7&nbsp;&nbsp;&nbsp;Drawing a filled circle: <tt class="docutils literal"><span class="pre">fillcircle3d(&lt;point&gt;,&lt;vec&gt;,&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="fillpoly3d-2">
+<h2><a class="toc-backref" href="#id75">3.6&nbsp;&nbsp;&nbsp;Drawing a filled polygon with custom normals: <tt class="docutils literal"><span class="pre">fillpoly3d(&lt;list1&gt;,&lt;list2&gt;)</span></tt></a></h2>
 <div class="section" id="id25">
 <h3>Description</h3>
-<p>Draws a filled circle.</p>
+<p>Draws a filled polygon with user-defined normals.</p>
 <dl class="docutils">
-<dt><tt class="docutils literal">&lt;point&gt;</tt></dt>
-<dd>the center of the circle</dd>
-<dt><tt class="docutils literal">&lt;vec&gt;</tt></dt>
-<dd>the normal vector of the circle</dd>
-<dt><tt class="docutils literal">&lt;real&gt;</tt></dt>
-<dd>the radius of the circle</dd>
+<dt><tt class="docutils literal">&lt;list1&gt;</tt></dt>
+<dd>the vertices (corner points) defining the polygon</dd>
+<dt><tt class="docutils literal">&lt;list2&gt;</tt></dt>
+<dd>the normal vectors of the polygon's vertices. The lengths of <tt class="docutils literal">&lt;list1&gt;</tt> and
+<tt class="docutils literal">&lt;list2&gt;</tt> must match.</dd>
 </dl>
 </div>
 <div class="section" id="id26">
@@ -564,16 +540,18 @@ are drawn.</dd>
 </table>
 </div>
 </div>
-<div class="section" id="drawing-a-sphere-drawsphere3d-point-real">
-<h2><a class="toc-backref" href="#id71">2.8&nbsp;&nbsp;&nbsp;Drawing a sphere: <tt class="docutils literal"><span class="pre">drawsphere3d(&lt;point&gt;,&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="fillcircle3d-3">
+<h2><a class="toc-backref" href="#id76">3.7&nbsp;&nbsp;&nbsp;Drawing a filled circle: <tt class="docutils literal"><span class="pre">fillcircle3d(&lt;point&gt;,&lt;vec&gt;,&lt;real&gt;)</span></tt></a></h2>
 <div class="section" id="id27">
 <h3>Description</h3>
-<p>Draws a sphere.</p>
+<p>Draws a filled circle.</p>
 <dl class="docutils">
 <dt><tt class="docutils literal">&lt;point&gt;</tt></dt>
-<dd>the center of the sphere</dd>
+<dd>the center of the circle</dd>
+<dt><tt class="docutils literal">&lt;vec&gt;</tt></dt>
+<dd>the normal vector of the circle</dd>
 <dt><tt class="docutils literal">&lt;real&gt;</tt></dt>
-<dd>the radius of the sphere</dd>
+<dd>the radius of the circle</dd>
 </dl>
 </div>
 <div class="section" id="id28">
@@ -612,9 +590,57 @@ are drawn.</dd>
 </table>
 </div>
 </div>
-<div class="section" id="drawing-a-mesh-mesh3d-int1-int2-list">
-<span id="mesh3d-int1-int2-list"></span><h2><a class="toc-backref" href="#id72">2.9&nbsp;&nbsp;&nbsp;Drawing a mesh: <tt class="docutils literal"><span class="pre">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list&gt;)</span></tt></a></h2>
+<div class="section" id="drawsphere3d-2">
+<h2><a class="toc-backref" href="#id77">3.8&nbsp;&nbsp;&nbsp;Drawing a sphere: <tt class="docutils literal"><span class="pre">drawsphere3d(&lt;point&gt;,&lt;real&gt;)</span></tt></a></h2>
 <div class="section" id="id29">
+<h3>Description</h3>
+<p>Draws a sphere.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">&lt;point&gt;</tt></dt>
+<dd>the center of the sphere</dd>
+<dt><tt class="docutils literal">&lt;real&gt;</tt></dt>
+<dd>the radius of the sphere</dd>
+</dl>
+</div>
+<div class="section" id="id30">
+<h3>Modifiers</h3>
+<p>This function can handle the following modifiers:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="38%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Modifier</th>
+<th class="head">Parameter</th>
+<th class="head">Effect</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>size</td>
+<td><tt class="docutils literal">&lt;real&gt;</tt></td>
+<td>sets the surface size</td>
+</tr>
+<tr><td>color</td>
+<td><tt class="docutils literal"><span class="pre">[&lt;real1&gt;,&lt;real2&gt;,&lt;real3&gt;]</span></tt></td>
+<td>sets the surface color to an RGB value</td>
+</tr>
+<tr><td>shininess</td>
+<td><tt class="docutils literal">&lt;real&gt;</tt></td>
+<td>sets the shininess</td>
+</tr>
+<tr><td>alpha</td>
+<td><tt class="docutils literal">&lt;real&gt;</tt></td>
+<td>sets the opacity</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="mesh3d-3">
+<span id="mesh3d3"></span><h2><a class="toc-backref" href="#id78">3.9&nbsp;&nbsp;&nbsp;Drawing a mesh: <tt class="docutils literal"><span class="pre">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list&gt;)</span></tt></a></h2>
+<div class="section" id="id31">
 <h3>Description</h3>
 <p>Draws a grid-based mesh. The vertices are organized in a regular grid of <em>m</em>
 rows and <em>n</em> columns. Neighbouring vertices in a row or column are connected by
@@ -636,24 +662,21 @@ modifier. When this modifier is not present, an open topology is assumed.</p>
 <tbody valign="top">
 <tr><td>Open</td>
 <td>No additional edges or faces, resulting in a total total of
-<span class="math">
-\((m-1)\times(n-1)\)</span>
+<span class="math">\((m-1)\times(n-1)\)</span>
  quadliteral faces. The surface has two
 sides and one border.</td>
 </tr>
 <tr><td>Close rows</td>
 <td>Additional edges are introduced connecting the first and last
 vertex of each row. Also corresponding faces are generated,
-resulting in a total of <span class="math">
-\((m-1)\times n\)</span>
+resulting in a total of <span class="math">\((m-1)\times n\)</span>
  quadliteral faces.
 The surface has two sides and two borders.</td>
 </tr>
 <tr><td>Close columns</td>
 <td>Additional edges are introduced connecting the first and last
 vertex of each column. Also corresponding faces are generated,
-resulting in a total of <span class="math">
-\(m\times(n-1)\)</span>
+resulting in a total of <span class="math">\(m\times(n-1)\)</span>
  quadliteral faces.
 The surface has two sides and two borders.</td>
 </tr>
@@ -661,8 +684,7 @@ The surface has two sides and two borders.</td>
 <td>Additional edges are introduced connecting the first and last
 vertex of each row as well as the first and last vertex of each
 column. Also corresponding faces are generated, resulting in a
-total of <span class="math">
-\(m \times n\)</span>
+total of <span class="math">\(m \times n\)</span>
  quadliteral faces. The surface has two
 sides and no border.</td>
 </tr>
@@ -704,12 +726,11 @@ underlying grid structure to a certain degree.</td>
 <dd>the number of grid columns, <em>n</em></dd>
 <dt><tt class="docutils literal">&lt;list&gt;</tt></dt>
 <dd>the vertices of the grid, in row-major order. The length of this list must
-equal <span class="math">
-\(m \times n\)</span>
+equal <span class="math">\(m \times n\)</span>
 .</dd>
 </dl>
 </div>
-<div class="section" id="id30">
+<div class="section" id="id32">
 <h3>Modifiers</h3>
 <p>This function can handle the following modifiers:</p>
 <table border="1" class="docutils">
@@ -757,16 +778,16 @@ allowed)</td>
 </tbody>
 </table>
 </div>
-<div class="section" id="id31">
+<div class="section" id="id33">
 <h3>Example</h3>
 </div>
 </div>
-<div class="section" id="drawing-a-mesh-with-custom-normals-mesh3d-int1-int2-list1-list2">
-<h2><a class="toc-backref" href="#id73">2.10&nbsp;&nbsp;&nbsp;Drawing a mesh with custom normals: <tt class="docutils literal"><span class="pre">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list1&gt;,&lt;list2&gt;)</span></tt></a></h2>
-<div class="section" id="id32">
+<div class="section" id="mesh3d-4">
+<h2><a class="toc-backref" href="#id79">3.10&nbsp;&nbsp;&nbsp;Drawing a mesh with custom normals: <tt class="docutils literal"><span class="pre">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list1&gt;,&lt;list2&gt;)</span></tt></a></h2>
+<div class="section" id="id34">
 <h3>Description</h3>
 <p>Draws a grid-based mesh with user-defined normals. For a description of how the
-grid is formed, refer to <a class="reference internal" href="#mesh3d-int1-int2-list">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list&gt;)</a>.</p>
+grid is formed, refer to <a class="reference internal" href="#mesh3d3">mesh3d(&lt;int1&gt;,&lt;int2&gt;,&lt;list&gt;)</a>.</p>
 <dl class="docutils">
 <dt><tt class="docutils literal">&lt;int1&gt;</tt></dt>
 <dd>the number of grid rows, <em>m</em></dd>
@@ -774,17 +795,15 @@ grid is formed, refer to <a class="reference internal" href="#mesh3d-int1-int2-l
 <dd>the number of grid columns, <em>n</em></dd>
 <dt><tt class="docutils literal">&lt;list1&gt;</tt></dt>
 <dd>the vertices of the grid, in row-major order. The length of this list must
-equal <span class="math">
-\(m \times n\)</span>
+equal <span class="math">\(m \times n\)</span>
 .</dd>
 <dt><tt class="docutils literal">&lt;list2&gt;</tt></dt>
 <dd>the normals for each vertex, in row-major order. The length of this list must
-equal <span class="math">
-\(m \times n\)</span>
+equal <span class="math">\(m \times n\)</span>
 .</dd>
 </dl>
 </div>
-<div class="section" id="id33">
+<div class="section" id="id36">
 <h3>Modifiers</h3>
 <p>This function can handle the following modifiers:</p>
 <table border="1" class="docutils">
@@ -826,16 +845,16 @@ allowed)</td>
 </tbody>
 </table>
 </div>
-<div class="section" id="id34">
+<div class="section" id="id37">
 <h3>Example</h3>
 </div>
 </div>
 </div>
 <div class="section" id="lighting-and-scene-appearance">
-<h1><a class="toc-backref" href="#id74">3&nbsp;&nbsp;&nbsp;Lighting and scene appearance</a></h1>
-<div class="section" id="set-background-color-background3d-colorvec">
-<h2><a class="toc-backref" href="#id75">3.1&nbsp;&nbsp;&nbsp;Set background color: <tt class="docutils literal"><span class="pre">background3d(&lt;colorvec&gt;)</span></tt></a></h2>
-<div class="section" id="id35">
+<h1><a class="toc-backref" href="#id80">4&nbsp;&nbsp;&nbsp;Lighting and scene appearance</a></h1>
+<div class="section" id="background3d-1">
+<h2><a class="toc-backref" href="#id81">4.1&nbsp;&nbsp;&nbsp;Set background color: <tt class="docutils literal"><span class="pre">background3d(&lt;colorvec&gt;)</span></tt></a></h2>
+<div class="section" id="id38">
 <h3>Description</h3>
 <p>Sets the scene background color to an RGB value.</p>
 <dl class="docutils">
@@ -844,9 +863,9 @@ allowed)</td>
 </dl>
 </div>
 </div>
-<div class="section" id="position-the-camera-lookat3d-point1-point2-vec">
-<h2><a class="toc-backref" href="#id76">3.2&nbsp;&nbsp;&nbsp;Position the camera: <tt class="docutils literal"><span class="pre">lookat3d(&lt;point1&gt;,&lt;point2&gt;,&lt;vec&gt;)</span></tt></a></h2>
-<div class="section" id="id36">
+<div class="section" id="lookat3d-3">
+<h2><a class="toc-backref" href="#id82">4.2&nbsp;&nbsp;&nbsp;Position the camera: <tt class="docutils literal"><span class="pre">lookat3d(&lt;point1&gt;,&lt;point2&gt;,&lt;vec&gt;)</span></tt></a></h2>
+<div class="section" id="id39">
 <h3>Description</h3>
 <p>Sets the position, look at point and up vector of the camera.</p>
 <dl class="docutils">
@@ -859,22 +878,21 @@ allowed)</td>
 </dl>
 </div>
 </div>
-<div class="section" id="set-field-of-view-fieldofview3d-real">
-<h2><a class="toc-backref" href="#id77">3.3&nbsp;&nbsp;&nbsp;Set field of view: <tt class="docutils literal"><span class="pre">fieldofview3d(&lt;real&gt;)</span></tt></a></h2>
-<div class="section" id="id37">
+<div class="section" id="fieldofview3d-1">
+<h2><a class="toc-backref" href="#id83">4.3&nbsp;&nbsp;&nbsp;Set field of view: <tt class="docutils literal"><span class="pre">fieldofview3d(&lt;real&gt;)</span></tt></a></h2>
+<div class="section" id="id40">
 <h3>Description</h3>
 <p>Sets the field of view of the camera.</p>
 <dl class="docutils">
 <dt><tt class="docutils literal">&lt;real&gt;</tt></dt>
-<dd>horizontal field of view of the camera. Must be in range <span class="math">
-\(]0,\pi[\)</span>
+<dd>horizontal field of view of the camera. Must be in range <span class="math">\(]0,\pi[\)</span>
 </dd>
 </dl>
 </div>
 </div>
-<div class="section" id="set-visible-depth-range-depthrange3d-real1-real2">
-<h2><a class="toc-backref" href="#id78">3.4&nbsp;&nbsp;&nbsp;Set visible depth range: <tt class="docutils literal"><span class="pre">depthrange3d(&lt;real1&gt;,&lt;real2&gt;)</span></tt></a></h2>
-<div class="section" id="id38">
+<div class="section" id="depthrange3d-2">
+<h2><a class="toc-backref" href="#id84">4.4&nbsp;&nbsp;&nbsp;Set visible depth range: <tt class="docutils literal"><span class="pre">depthrange3d(&lt;real1&gt;,&lt;real2&gt;)</span></tt></a></h2>
+<div class="section" id="id41">
 <h3>Description</h3>
 <p>Sets the minimum and maximum camera depth. The camera depth of a point is its
 distance to the camera plane (the plane through the camera and orthogonal to the
@@ -882,9 +900,9 @@ viewing direction). All objects or parts thereof which don't fall into the
 current camera depth range are not visible.</p>
 </div>
 </div>
-<div class="section" id="set-rendering-hints-renderhints3d">
-<h2><a class="toc-backref" href="#id79">3.5&nbsp;&nbsp;&nbsp;Set rendering hints: <tt class="docutils literal">renderhints3d()</tt></a></h2>
-<div class="section" id="id39">
+<div class="section" id="renderhints3d-0">
+<h2><a class="toc-backref" href="#id85">4.5&nbsp;&nbsp;&nbsp;Set rendering hints: <tt class="docutils literal">renderhints3d()</tt></a></h2>
+<div class="section" id="id42">
 <h3>Description</h3>
 <p>Sets hints for various aspects of the rendering process. The rendering hints are
 specified by the following four modifiers:</p>
@@ -931,7 +949,7 @@ constraints), <em>Cindy3D</em> might fall back to a lower sampling rate.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id40">
+<div class="section" id="id43">
 <h3>Modifiers</h3>
 <p>The function can handle the following modifiers:</p>
 <table border="1" class="docutils">
@@ -971,9 +989,9 @@ pixels (must be larger than 0)</td>
 </table>
 </div>
 </div>
-<div class="section" id="set-up-a-point-light-pointlight3d-int">
-<h2><a class="toc-backref" href="#id80">3.6&nbsp;&nbsp;&nbsp;Set up a point light: <tt class="docutils literal"><span class="pre">pointlight3d(&lt;int&gt;)</span></tt></a></h2>
-<div class="section" id="id41">
+<div class="section" id="pointlight3d-1">
+<h2><a class="toc-backref" href="#id86">4.6&nbsp;&nbsp;&nbsp;Set up a point light: <tt class="docutils literal"><span class="pre">pointlight3d(&lt;int&gt;)</span></tt></a></h2>
+<div class="section" id="id44">
 <h3>Description</h3>
 <p>Creates or modifies a point light source. If the light source at the given index
 is already a point light, overrides the properties specified by the modifiers
@@ -985,7 +1003,7 @@ modifier, its default value is used.</p>
 <dd>light source index. Must be in range [0,7].</dd>
 </dl>
 </div>
-<div class="section" id="id42">
+<div class="section" id="id45">
 <h3>Modifiers</h3>
 <p>The function can handle the following modifiers:</p>
 <table border="1" class="docutils">
@@ -1032,9 +1050,9 @@ allowed, default: <tt class="docutils literal">&quot;camera&quot;</tt>)</td>
 </table>
 </div>
 </div>
-<div class="section" id="set-up-a-directional-light-directionallight3d-int">
-<h2><a class="toc-backref" href="#id81">3.7&nbsp;&nbsp;&nbsp;Set up a directional light: <tt class="docutils literal"><span class="pre">directionallight3d(&lt;int&gt;)</span></tt></a></h2>
-<div class="section" id="id43">
+<div class="section" id="directionallight3d-1">
+<h2><a class="toc-backref" href="#id87">4.7&nbsp;&nbsp;&nbsp;Set up a directional light: <tt class="docutils literal"><span class="pre">directionallight3d(&lt;int&gt;)</span></tt></a></h2>
+<div class="section" id="id46">
 <h3>Description</h3>
 <p>Creates or modifies a directional light source. If the light source at the given
 index is already a directional light, overrides the properties specified by the
@@ -1046,7 +1064,7 @@ In absence of a modifier, its default value is used.</p>
 <dd>light source index. Must be in range [0,7].</dd>
 </dl>
 </div>
-<div class="section" id="id44">
+<div class="section" id="id47">
 <h3>Modifiers</h3>
 <p>This function can handle the following modifiers:</p>
 <table border="1" class="docutils">
@@ -1094,9 +1112,9 @@ absolute (values <tt class="docutils literal">&quot;camera&quot;</tt> and
 </table>
 </div>
 </div>
-<div class="section" id="set-up-a-spot-light-spotlight3d-int">
-<h2><a class="toc-backref" href="#id82">3.8&nbsp;&nbsp;&nbsp;Set up a spot light: <tt class="docutils literal"><span class="pre">spotlight3d(&lt;int&gt;)</span></tt></a></h2>
-<div class="section" id="id45">
+<div class="section" id="spotlight3d-1">
+<h2><a class="toc-backref" href="#id88">4.8&nbsp;&nbsp;&nbsp;Set up a spot light: <tt class="docutils literal"><span class="pre">spotlight3d(&lt;int&gt;)</span></tt></a></h2>
+<div class="section" id="id48">
 <h3>Description</h3>
 <p>Creates or modifies a spot light source. If the light source at the given index
 is already a spot light, overrides the properties specified by the modifiers and
@@ -1108,7 +1126,7 @@ modifier, its default value is used.</p>
 <dd>light source index. Must be in range [0,7].</dd>
 </dl>
 </div>
-<div class="section" id="id46">
+<div class="section" id="id49">
 <h3>Modifiers</h3>
 <p>This function can handle the following modifiers:</p>
 <table border="1" class="docutils">
@@ -1153,11 +1171,9 @@ RGB value (default: [1,1,1])</td>
 <td><tt class="docutils literal">&lt;real&gt;</tt></td>
 <td>sets the cutoff angle of the spot cone
 (in radians, values in
-<span class="math">
-\([0,\frac\pi2]\)</span>
+<span class="math">\([0,\frac\pi2]\)</span>
  allowed, default:
-<span class="math">
-\(\frac\pi4\)</span>
+<span class="math">\(\frac\pi4\)</span>
 )</td>
 </tr>
 <tr><td>exponent</td>
@@ -1177,9 +1193,9 @@ and <tt class="docutils literal">&quot;world&quot;</tt> allowed, default:
 </table>
 </div>
 </div>
-<div class="section" id="disable-a-light-source-disablelight3d-int">
-<h2><a class="toc-backref" href="#id83">3.9&nbsp;&nbsp;&nbsp;Disable a light source: <tt class="docutils literal"><span class="pre">disablelight3d(&lt;int&gt;)</span></tt></a></h2>
-<div class="section" id="id47">
+<div class="section" id="disablelight3d-1">
+<h2><a class="toc-backref" href="#id89">4.9&nbsp;&nbsp;&nbsp;Disable a light source: <tt class="docutils literal"><span class="pre">disablelight3d(&lt;int&gt;)</span></tt></a></h2>
+<div class="section" id="id50">
 <h3>Description</h3>
 <p>Disables the light at the given index.</p>
 <dl class="docutils">
