@@ -400,7 +400,7 @@ shininess ``<real>``                    sets the shininess
 alpha     ``<real>``                    sets the opacity
 ========= ============================= =======================================
 
-.. _mesh3d(<int1>,<int2>,<list>):
+.. _mesh3d3:
 
 Drawing a mesh: ``mesh3d(<int1>,<int2>,<list>)``
 ================================================
@@ -497,7 +497,9 @@ Description
 ~~~~~~~~~~~
 
 Draws a grid-based mesh with user-defined normals. For a description of how the
-grid is formed, refer to `mesh3d(<int1>,<int2>,<list>)`_.
+grid is formed, refer to `mesh3d(<int1>,<int2>,<list>)`__.
+
+.. __: mesh3d3_
 
 ``<int1>``
   the number of grid rows, *m*
