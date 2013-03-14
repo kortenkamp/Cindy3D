@@ -16,8 +16,6 @@ import sys
 c3dfn = re.compile(r'([a-z]+3d)\(([^)]*)\)')
 old_set_id = docutils.nodes.document.set_id
 def new_set_id(self, node, *args, **kwargs):
-  if isinstance(node, docutils.nodes.section):
-    print(node.pformat())
   if not node['ids']:
     for name in node['names']:
       for match in c3dfn.finditer(name):

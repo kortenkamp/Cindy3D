@@ -8,6 +8,29 @@ Command reference
 .. contents::
    :depth: 2
 
+Initialization and Execution
+----------------------------
+
+Starting a sequence of 3D commands: ``begin3d()``
+=================================================
+
+Description
+~~~~~~~~~~~
+
+This function must be called before any 3D drawing commands are
+executed. It initializes the Cindy3D subsystem, and starts recording
+drawing instructions. The actual drawing happens only once the scene
+is done and ``end3d()`` is called.
+
+Finishing a sequence of 3D commands: ``end3d()``
+================================================
+
+Description
+~~~~~~~~~~~
+
+This command ends a sequence of 3D drawing commands, and renders the
+result to the Cindy3D display window.
+
 Object appearance
 -----------------
 
