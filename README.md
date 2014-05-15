@@ -23,7 +23,7 @@ You need the source code only if you want to (or have to) compile
 the source code yourself.
 
  [homepage]: http://gagern.github.com/Cindy3D/
- [downloads]: https://github.com/gagern/Cindy3D/downloads
+ [downloads]: https://github.com/gagern/Cindy3D/releases/latest
 
 ## How to compile the code
 
