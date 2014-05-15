@@ -45,7 +45,7 @@ these two might conflict, causing the plugin to fail.
 In that case, please either remove the part from your JRE,
 or install an appropriate version.
 
- [downloads]: https://github.com/gagern/Cindy3D/downloads
+ [downloads]: https://github.com/gagern/Cindy3D/releases/latest
 
 ## Building from source ## {#build}
 
