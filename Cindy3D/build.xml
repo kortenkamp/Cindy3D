@@ -9,7 +9,7 @@
     <property name="pluginfolder" location="${env.CINDERELLA_PLUGIN_DIR}/Cindy3D"/>
     <property name="plugin" location="Cindy3D.jar"/>
     <property name="ant-contrib.version" value="1.0b3"/>
-    <property name="jogl.version" value="v2.1.5"/>
+    <property name="jogl.version" value="v2.2.1"/>
     <property name="commons-math.version" value="commons-math-2.2"/>
     <property name="arches"
               value="linux-amd64,linux-i586,macosx-universal,solaris-amd64,solaris-i586,windows-amd64,windows-i586"/>
